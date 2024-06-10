@@ -1,0 +1,32 @@
+footer .wrapper-footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #121c1d;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+}
+footer .wrapper-footer div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+footer .wrapper-footer div i{
+    font-size: 20px;
+    color: #0174cf;
+    padding-bottom: 5px;
+}
+footer .wrapper-footer div p{
+    font-family: Arial,sans-serif;
+    color: white;
+    font-size: 18px;
+}
+footer .copy{
+    font-family: Arial,sans-serif;
+    background-color: #12191a;
+    color: white;
+    text-align: center;
+    padding: 10px 12px;
+}

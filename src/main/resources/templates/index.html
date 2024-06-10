@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PhysicalTherapy</title>
+<!--    <link rel="stylesheet" href="../static/css/reset.css">-->
+    <link rel="stylesheet" th:href="@{css/reset.css}">
+    <link rel="stylesheet" th:href="@{css/header.css}">
+    <link rel="stylesheet" th:href="@{css/main.css}">
+    <link rel="stylesheet" th:href="@{css/footer.css}">
+<!--    <link rel="stylesheet" href="../static/css/header.css">-->
+<!--    <link rel="stylesheet" href="../static/css/main.css">-->
+<!--    <link rel="stylesheet" href="../static/css/footer.css">-->
+
+
+</head>
+<body >
+<header th:replace="fragments/header :: header"></header>
+<main>
+
+
+    <section class="hero">
+        <div class="hero-info">
+            <h1>
+                Take the world's best quality Treadment
+            </h1>
+            <div>
+                <a>Contact us</a>
+            </div>
+
+        </div>
+
+    </section>
+    <section class="welcome">
+        <div class="info">
+            <h3>Welcome to Aesthetic</h3>
+            <h1>Find Best Doctors With <span>AESTHETIC</span></h1>
+            <p>Discover our aesthetic doctors: skilled artisans blending medical expertise with artistic finesse. They
+                craft beauty and confidence, sculpting transformations that redefine self-image. With precision and
+                passion, they deliver results that inspire and empower.</p>
+        </div>
+        <div class="img-doctor">
+            <img src="/images/doctor.jpg">
+
+        </div>
+    </section>
+
+    <section class="offer">
+        <div class="offer-info">
+            <h2>Why choose us?</h2>
+            <h1>Offer for you</h1>
+        </div>
+
+        <div class="offer-cards">
+            <div>
+                <i class="fas fa-syringe"></i>
+                <h2>Advanced equipment</h2>
+                <p>In our aesthetic clinic, the quality of equipment plays a vital role in ensuring top-notch patient
+                    care and satisfaction. From state-of-the-art laser machines to advanced skincare devices, having the
+                    right equipment is paramount for delivering safe and effective treatments.</p>
+
+            </div>
+            <div>
+                <i class="fas fa-briefcase-medical"></i>
+                <h2>Qualified doctors</h2>
+                <p>Our doctors are highly trained in aesthetic medicine, with expertise in dermatology, plastic surgery,
+                    and related fields. They continually update their skills to offer patients the latest treatments and
+                    ensure top-quality care.</p>
+            </div>
+            <div>
+                <i class="fas fa-file-medical-alt"></i>
+                <h2>Certified services</h2>
+                <p>At our clinic, we take pride in offering certified services that uphold the highest standards of
+                    excellence in aesthetic care. Each service we provide is backed by a commitment to quality and
+                    safety, ensuring that our patients receive the utmost in professional care and attention.</p>
+            </div>
+            <div>
+                <i class="fas fa-heartbeat"></i>
+                <h2>Emergency care</h2>
+                <p>Our clinic provides emergency care services, ensuring prompt and effective treatment for urgent
+                    medical needs. Our dedicated team is trained to handle emergencies with expertise and compassion,
+                    prioritizing patient safety and well-being above all else.</p>
+
+            </div>
+
+        </div>
+
+    </section>
+</main>
+<footer th:replace="fragments/footer :: footer"></footer>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+.prices{
+    margin-top: 300px;
+    max-width: 100%;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+.consult{
+    display: flex;
+justify-content: space-between;
+    border-bottom: 1px dashed gray;
+    padding-bottom: 2px;
+    padding-top: 10px;
+}
+.consult p{
+    font-size: 2rem;
+    font-family: "Times New Roman" ,sans-serif;
+
+}
+.procedures{
+    margin-bottom: 20px;
+}
+.procedures h1{
+    font-size: 3rem;
+    color: #0174cf;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

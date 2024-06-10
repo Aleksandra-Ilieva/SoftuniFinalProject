@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{css/reset.css}">
+    <link rel="stylesheet" th:href="@{css/header.css}">
+    <link rel="stylesheet" th:href="@{css/register.css}">
+    <link rel="stylesheet" th:href="@{css/footer.css}">
+    <link rel="stylesheet" th:href="@{css/appointment.css}">
+</head>
+<body>
+<header th:replace="fragments/header :: header"></header>
+<main>
+    <section class="hero">
+    </section>
+
+    <div class="login-page">
+        <div class="form">
+            <form class="register-form" method="POST">
+                <h2>Book Consultation</h2>
+                <input type="text" placeholder="Full Name *" required/>
+                <input type="email" placeholder="Email *" required/>
+                <input type="text" placeholder="Phone Number *" required/>
+                <input type="date" placeholder="Appointment Date *" required/>
+                <input type="time" placeholder="Appointment Time *" required/>
+                <a class="btn" href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Send Request
+                </a>
+            </form>
+        </div>
+    </div>
+</main>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+
+</body>
+</html>

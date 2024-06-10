@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{css/reset.css}">
+    <link rel="stylesheet" th:href="@{css/header.css}">
+    <link rel="stylesheet" th:href="@{css/footer.css}">
+    <link rel="stylesheet" th:href="@{css/services.css}">
+    <link rel="stylesheet" th:href="@{css/prices.css}">
+</head>
+<body>
+<header th:replace="fragments/header :: header"></header>
+<main>
+    <section class="services">
+        <h1>Our Prices</h1>
+    </section>
+    <section class="prices">
+        <div class="consult">
+            <p>Consultation with Dr.Petrov</p>
+            <p>150 $</p>
+        </div>
+        <div class="procedures">
+            <h1>Procedures</h1>
+            <div class="consult">
+                <p>Breast Augmentation</p>
+                <p>5 500 $</p>
+            </div>
+            <div class="consult">
+                <p>Lipofilling</p>
+                <p>3 200 $</p>
+            </div>
+            <div class="consult">
+                <p>Face Lifting</p>
+                <p>6 300 $</p>
+            </div>
+            <div class="consult">
+                <p>Rhinoplasty</p>
+                <p>3 000 $</p>
+            </div>
+            <div class="consult">
+                <p>Liposuction</p>
+                <p>4 200 $</p>
+            </div>
+        </div>
+
+    </section>
+</main>
+
+
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

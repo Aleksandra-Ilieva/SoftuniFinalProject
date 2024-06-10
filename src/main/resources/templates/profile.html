@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{css/reset.css}">
+    <link rel="stylesheet" th:href="@{css/header.css}">
+    <link rel="stylesheet" th:href="@{css/register.css}">
+    <link rel="stylesheet" th:href="@{css/profile.css}">
+    <link rel="stylesheet" th:href="@{css/footer.css}">
+</head>
+<body>
+<header th:replace="fragments/header :: header"></header>
+<main>
+    <section class="hero">
+        <section class="profile">
+            <h1>Aleksandra</h1>
+
+
+                <h2>Upcoming consultations</h2>
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Cancel</th>
+                </tr>
+                <tr>
+                    <td>Alfreds Futterkiste</td>
+                    <td>Maria Anders</td>
+                    <td><a>Cancel</a></td>
+                </tr>
+                <tr>
+                    <td>Alfreds Futterkiste</td>
+                    <td>Maria Anders</td>
+                    <td><a>Cancel</a></td>
+                </tr>
+            </table>
+        </section>
+    </section>
+
+
+
+</main>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+
+</body>
+</html>

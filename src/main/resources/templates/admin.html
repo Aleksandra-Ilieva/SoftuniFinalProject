@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{css/reset.css}">
+    <link rel="stylesheet" th:href="@{css/header.css}">
+    <link rel="stylesheet" th:href="@{css/admin.css}">
+    <link rel="stylesheet" th:href="@{css/footer.css}">
+    <link rel="stylesheet" th:href="@{css/appointment.css}">
+</head>
+<body>
+<header th:replace="fragments/header :: header"></header>
+<main>
+    <section class="hero">
+        <section class="users">
+            <div class="table-wrapper">
+                <h1>Users</h1>
+                <table>
+                    <table>
+                        <tr>
+                            <th>Username</th>
+                            <th>Phone Number</th>
+                            <th>Ban/Unban</th>
+                            <th>SetRole</th>
+                        </tr>
+                        <tr>
+                            <td>Shopka</td>
+                            <td>03731781</td>
+                            <td><a class="cancel">Ban/Unban</a></td>
+                            <td >
+                                <select name="role">
+                                    <option value="user">User</option>
+                                    <option value="moderator">Moderator</option>
+                                    <option value="admin">Admin</option>
+                                    <option value="all">ALL</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Shopka</td>
+                            <td>03731781</td>
+                            <td><a class="cancel">Ban/Unban</a></td>
+                            <td >
+                                <select name="role">
+                                    <option value="user">User</option>
+                                    <option value="moderator">Moderator</option>
+                                    <option value="admin">Admin</option>
+                                    <option value="all">ALL</option>
+                                </select>
+                            </td>
+                        </tr>
+
+
+
+                    </table>
+                </table>
+
+            </div>
+    </section>
+    </section>
+
+</main>
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

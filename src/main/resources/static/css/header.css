@@ -1,0 +1,63 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css";
+header {
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    z-index: 100;
+    position: sticky;
+    box-shadow: 5px 5px 10px 0px #d4d4d4;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+}
+
+header h1 {
+    color: black;
+    font-family: cursive
+}
+header .logo{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+header .logo img{
+
+    max-width: 50px;
+}
+
+
+
+ul{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    list-style: none;
+}
+
+ul a{
+    text-decoration: none;
+    color: #ffffff;
+    padding-top: 8px;
+    padding-left: 10px;
+    border-radius: 14px;
+    padding-right: 10px;
+    padding-bottom: 8px;
+    background-color:  #0174cf;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    cursor:  pointer;
+
+}
+nav ul li a:hover {
+    background-color: white; /* Променя цвета на текста на бяло */
+    border: 2px solid #0174cf;; /* Добавя синьо подчертаване */
+    color: black;
+}

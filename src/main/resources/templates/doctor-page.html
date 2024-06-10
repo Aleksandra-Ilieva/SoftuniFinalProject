@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{css/reset.css}">
+    <link rel="stylesheet" th:href="@{css/header.css}">
+    <link rel="stylesheet" th:href="@{css/doctor-page.css}">
+    <link rel="stylesheet" th:href="@{css/footer.css}">
+</head>
+<body>
+<header th:replace="fragments/header :: header"></header>
+<main>
+    <section class="hero">
+        <section class="schedule">
+            <div class="new-appointments table">
+                <h1>New Appointments</h1>
+                <table>
+                    <table>
+                        <tr>
+                            <th>Username</th>
+                            <th>Phone Number</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Cancel</th>
+                            <th>Approve</th>
+                        </tr>
+                        <tr>
+                            <td>Bobi</td>
+                            <td>040848833</td>
+                            <td>2024.07.12</td>
+                            <td>12:20</td>
+                            <td><a class="cancel">Cancel</a></td>
+                            <td><a class="approve">Approve</a></td>
+                        </tr>
+                        <tr>
+                            <td>Shopka</td>
+                            <td>03731781</td>
+                            <td>2024.10.12</td>
+                            <td>15:00</td>
+                            <td><a class="cancel">Cancel</a></td>
+                            <td><a class="approve">Approve</a></td>
+                        </tr>
+
+
+
+                    </table>
+                </table>
+
+            </div>
+            <div class="approved-appointments table">
+                <h1>Approved Appointments</h1>
+                <table>
+                    <tr>
+                        <th>Username</th>
+                        <th>Phone Number</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Remove</th>
+                    </tr>
+                    <tr>
+                        <td>Ivanka_5</td>
+                        <td>08536783</td>
+                        <td>2024.06.10</td>
+                        <td>12:30</td>
+                        <td><a class="cancel">Remove</a></td>
+
+                    </tr>
+                    <tr>
+                        <td>Bojka</td>
+                        <td>04884843</td>
+                        <td>2024.06.15</td>
+                        <td>15:30</td>
+                        <td><a class="cancel">Remove</a></td>
+                    </tr>
+                </table>
+                </table>
+
+            </div>
+        </section>
+    </section>
+
+</main>
+<footer th:replace="fragments/footer :: footer"></footer>
+
+</body>
+</html>

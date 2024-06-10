@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="/images/logo.png">
+        <h1>Aesthetic Clinic</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/services}">Services</a></li>
+            <li><a th:href="@{/prices}">Prices</a></li>
+            <li><a th:href="@{/about}">About us</a></li>
+            <li  class="register"><a th:href="@{/register}">Register</a></li>
+            <li  class="login"><a th:href="@{/login}">Login</a></li>
+            <li  ><a sec:authorize="isAuthenticated()" th:href="@{/appointment}">Book Consultation</a></li>
+            <li  ><a sec:authorize="isAuthenticated()" th:href="@{/profile}">My profile</a></li>
+            <li  ><a sec:authorize="hasAnyRole('ADMIN','DOCTOR')" th:href="@{/doctor-page}">My schedule</a></li>
+            <li  ><a sec:authorize="hasRole('ADMIN')" th:href="@{/admin}">Admin panel</a></li>
+
+        </ul>
+    </nav>
+</header>
+
+
+
+
+
+</body>
+</html>

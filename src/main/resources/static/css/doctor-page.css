@@ -1,0 +1,133 @@
+.hero{
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(44, 44, 44, 0.3)),
+    url('../images/bg-img.jpg') no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    opacity: 0.7;
+    top: 0;
+    left: 0;
+    text-shadow: 1px 1px 1px rgb(80, 79, 79);
+    padding-bottom: 50px;
+    padding-top: 50px;
+
+
+}
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.schedule{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 40px;
+    margin-top: 80px;
+
+
+}
+.new-appointments{
+    min-height: 300px;
+}
+.approved-appointments{
+    min-height: 300px;
+}
+.schedule h1{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: 3rem;
+    color: white;
+}
+.table{
+    padding-bottom: 80px;
+    padding-top: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 600px;
+    margin-top: 20px;
+    background: rgba(0,0,0,.9);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+
+}
+
+table .cancel{
+    text-decoration: none;
+    color: #ffffff;
+    padding-top: 6px;
+    padding-left: 8px;
+    border-radius: 14px;
+    padding-right: 10px;
+    padding-bottom: 8px;
+    background-color:  red;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    cursor:  pointer;
+    font-size: 12px;
+
+}
+
+table .approve{
+    text-decoration: none;
+    color: #ffffff;
+    padding-top: 6px;
+    padding-left: 8px;
+    border-radius: 14px;
+    padding-right: 10px;
+    padding-bottom: 8px;
+    background-color:  green;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    cursor:  pointer;
+    font-size: 12px;
+
+}
+
+table .cancel:hover{
+    background-color: white; /* Променя цвета на текста на бяло */
+    border: 2px solid red;; /* Добавя синьо подчертаване */
+    color: black;
+
+}
+table .approve:hover{
+    background-color: white; /* Променя цвета на текста на бяло */
+    border: 2px solid green;; /* Добавя синьо подчертаване */
+    color: black;
+
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+
+}
+th{
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+
+}
+tr:nth-child(odd) {
+    color: white;
+
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{css/reset.css}">
+    <link rel="stylesheet" th:href="@{css/header.css}">
+    <link rel="stylesheet" th:href="@{css/login.css}">
+    <link rel="stylesheet" th:href="@{css/footer.css}">
+</head>
+<body>
+<header th:replace="fragments/header :: header"></header>
+<main>
+    <section class="hero">
+    </section>
+    <div class="login-page">
+        <div class="form">
+            <form class="login-form"     th:method="POST"
+                  th:action="@{/login}">
+                <h2></i> Login</h2>
+                <input name="username" type="text" placeholder="Username" required />
+                <input name="password" type="password" placeholder="Password" required/>
+                <button class="btn" type="submit">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Sign in
+                </button>
+                <p class="message">Not registered? <a href="#">Create an account</a></p>
+            </form>
+        </div>
+        </div>
+
+</main>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

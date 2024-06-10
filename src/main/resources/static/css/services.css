@@ -1,0 +1,114 @@
+
+.services {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(44, 44, 44, 0.3)),
+    url('../images/bg-img.jpg') no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    max-height: 300px;
+    opacity: 0.7;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-shadow: 1px 1px 1px rgb(80, 79, 79);
+}
+.services h1{
+    color: white;
+    font-size: 4rem;
+    margin-top: 120px;
+    text-align: center;
+    margin-bottom: 250px;
+}
+.check-procedure{
+    padding-top: 120px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 120px;
+
+}
+.card{
+    max-width: 650px;
+    height: 400px;
+    padding-top: 20px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-right: 30px;
+    padding-left: 40px;
+    border-radius: 10px;
+    -webkit-box-shadow: -2px 7px 18px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: -2px 7px 18px 0px rgba(0,0,0,0.75);
+    box-shadow: -2px 7px 18px 0px rgba(0,0,0,0.75);
+
+}
+.card h1{
+    text-align: center;
+    padding-bottom: 40px;
+    font-family: cursive;
+    font-size: 32px;
+
+}
+.card p{
+    text-align: center;
+    font-size:18px;
+    font-family: Arial,sans-serif;
+}
+
+.card .more-info-btn{
+    background-color: #0174cf;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.breast{
+
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(44, 44, 44, 0.3)),
+    url('../images/breast.jpg') no-repeat center center;
+    background-size: cover;
+
+}
+
+.lips{
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(44, 44, 44, 0.3)),
+    url('../images/lips.webp') no-repeat center center;
+    background-size: cover;
+}
+.face{
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(44, 44, 44, 0.3)),
+    url('../images/facelifting.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.rhinoplasty{
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(44, 44, 44, 0.3)),
+    url('../images/rhinoplastyka.png') no-repeat center center;
+    background-size: cover;
+}
+.liposuction{
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(44, 44, 44, 0.3)),
+    url('../images/Liposuction.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.card:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 200ms;
+}
+
+.card .more-info-btn:hover{
+    background-color: white; /* Променя цвета на текста на бяло */
+    border: 2px solid #0174cf;; /* Добавя синьо подчертаване */
+    color: black;
+}

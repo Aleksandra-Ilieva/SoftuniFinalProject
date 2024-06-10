@@ -1,0 +1,149 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css";
+main .hero{
+    background-image: url("https://www.aestheticlinic.co.in/wp-content/uploads/2018/03/Clinic-Skin.jpg");
+    max-width: 100%;
+    height: 80vh;
+    background-position: top;
+    background-size: cover;
+}
+
+ main .hero .hero-info{
+    max-width: 50%;
+  padding-left: 100px;
+     padding-top: 200px;
+
+
+
+
+}
+main .hero .hero-info h1{
+    font-family: Arial, serif;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+main .hero .hero-info a{
+    color: #ffffff;
+    padding-top: 8px;
+    padding-left: 40px;
+    border-radius: 14px;
+    padding-right: 40px;
+    padding-bottom: 8px;
+    background-color:  #0174cf;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    cursor:  pointer;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+
+}
+main .hero .hero-info a:hover {
+    color: white;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.5);
+
+}
+
+
+.welcome{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1600px;
+    margin-top: 30px;
+    gap: 40px;
+
+
+
+}
+
+.welcome .info{
+    max-width: 50%;
+    font-family: Arial , sans-serif;
+}
+.welcome .info h3, p{
+    font-size: 20px;
+    color: #888888;
+}
+
+.welcome .info h1{
+    font-size: 40px;
+}
+
+.welcome .info span{
+    color: #0174cf;
+}
+.welcome .img-doctor{
+    max-width: 50%;
+}
+.welcome .img-doctor img{
+    max-width: 400px;
+}
+
+.offer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 40px;
+}
+.offer .offer-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.offer .offer-info h2{
+    font-family: Arial,sans-serif;
+    font-size: 16px;
+    color: gray;
+
+}
+
+.offer .offer-info h1{
+    font-family: Arial,sans-serif;
+    font-size: 40px;
+    color: #0174cf;
+
+}
+.offer .offer-cards{
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+    padding-bottom: 60px;
+    padding-top: 60px;
+    justify-content: space-around;
+    align-items: center;
+
+
+}
+
+.offer .offer-cards div{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    max-height: 400px;
+
+
+
+
+}
+.offer .offer-cards div i{
+    font-size: 50px;
+    color: #0174cf;
+    padding-bottom: 5px;
+}
+.offer .offer-cards div h2{
+    font-family: Arial,sans-serif;
+    padding-bottom: 20px;
+
+}
+.offer .offer-cards div p{
+    max-width: 300px;
+    font-size: 18px;
+    color: gray;
+    text-align: center;
+}
