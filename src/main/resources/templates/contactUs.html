@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{css/reset.css}">
+
+    <link rel="stylesheet" th:href="@{css/header.css}">
+    <link rel="stylesheet" th:href="@{css/contactUs.css}">
+    <link rel="stylesheet" th:href="@{css/footer.css}">
+</head>
+<body>
+
+<header th:replace="fragments/header :: header"></header>
+<main>
+
+
+    <section class="hero">
+
+
+    </section>
+
+    <section class="contact-container">
+        <div class="img-wrapper">
+            <img src="/images/contact.webp">
+
+        </div>
+        <form  class="contact-form">
+            <h1 class="title text-center mb-4">Talk to Us</h1>
+
+            <!-- Name -->
+            <div class="form-group position-relative">
+                <label for="formName" class="d-block">
+
+                </label>
+                <input type="text" id="formName" class="form-control form-control-lg thick" placeholder="Name">
+            </div>
+
+            <!-- E-mail -->
+            <div class="form-group position-relative">
+                <label for="formEmail" class="d-block">
+
+                </label>
+                <input   th:value="${userEmail}"  type="email" id="formEmail" class="form-control form-control-lg thick" placeholder="E-mail">
+            </div>
+
+            <!-- Message -->
+            <div class="form-group message">
+                <textarea id="formMessage" class="form-control form-control-lg" rows="7" placeholder="Message"></textarea>
+            </div>
+
+            <!-- Submit btn -->
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary" tabIndex="-1">Send message</button>
+            </div>
+        </form>
+    </section>
+
+</main>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+
+</body>
+</html>
