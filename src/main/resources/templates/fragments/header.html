@@ -18,8 +18,8 @@
             <li><a th:href="@{/services}">Services</a></li>
             <li><a th:href="@{/prices}">Prices</a></li>
             <li><a th:href="@{/about}">About us</a></li>
-            <li  class="register"><a th:href="@{/register}">Register</a></li>
-            <li  class="login"><a th:href="@{/login}">Login</a></li>
+            <li sec:authorize="!isAuthenticated()" class="register"><a th:href="@{/register}">Register</a></li>
+            <li sec:authorize="!isAuthenticated()"  class="login"><a th:href="@{/login}">Login</a></li>
             <li  ><a sec:authorize="isAuthenticated()" th:href="@{/appointment}">Book Consultation</a></li>
             <li  ><a sec:authorize="isAuthenticated()" th:href="@{/profile}">My profile</a></li>
             <li  ><a sec:authorize="hasAnyRole('ADMIN','DOCTOR')" th:href="@{/doctor-page}">My schedule</a></li>

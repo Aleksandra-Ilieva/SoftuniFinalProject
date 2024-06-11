@@ -50,6 +50,10 @@
     border: unset;
 }
 
+.text-danger {
+    color: #dc3545;
+}
+
 .form input {
     width: 100%;
     padding: 10px 0;
