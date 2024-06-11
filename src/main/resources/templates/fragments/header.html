@@ -11,10 +11,10 @@
     <div class="logo">
         <img src="/images/logo.png">
         <h1>Aesthetic Clinic</h1>
-        <form sec:authorize="isAuthenticated()" th:method="Post"
+        <form class="logout-form" sec:authorize="isAuthenticated()" th:method="Post"
               th:action="@{/logout}">
 
-            <input class="btn btn-link nav-link logout" type="submit" value="Logout">
+            <input class="logout" type="submit" value="Logout">
         </form>
     </div>
     <nav>
