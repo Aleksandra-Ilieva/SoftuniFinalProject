@@ -1,7 +1,8 @@
-package org.example.softunifinalproject.model;
+package org.example.softunifinalproject.model.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -17,22 +18,17 @@ public class User extends BaseEntity {
     private String password;
     @Column(nullable = false, unique = true)
     private String username;
-    @Column(unique = true, nullable = false)
-    private String phoneNumber;
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles;
     @OneToMany(mappedBy = "user")
     private Set<Consultation> consultations;
 
-
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public User() {
+        this.roles=new ArrayList<>();
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
+
 
     public List<Role> getRoles() {
         return roles;

@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:300");
 
-.hero{
+.hero {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(44, 44, 44, 0.3)),
     url('../images/bg-img.jpg') no-repeat center center;
     background-size: cover;
@@ -27,6 +27,7 @@
 
     margin: auto;
 }
+
 .form {
     position: relative;
     z-index: 1;
@@ -37,12 +38,18 @@
     width: 500px;
     padding: 40px;
     transform: translate(-50%, -50%);
-    background: rgba(0,0,0,.5);
+    background: rgba(0, 0, 0, .5);
     box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
     border-radius: 10px;
     margin-top: 80px;
 }
+
+.form .btn {
+    background: unset;
+    border: unset;
+}
+
 .form input {
     width: 100%;
     padding: 10px 0;
@@ -55,8 +62,9 @@
     background: transparent;
 
 }
-h2{
-    color:white;
+
+h2 {
+    color: white;
     font-size: 3rem;
 }
 
@@ -66,6 +74,7 @@ h2{
     color: #b3b3b3;
     font-size: 12px;
 }
+
 .form .message a {
     color: #289bb8;
     text-decoration: none;
@@ -83,6 +92,7 @@ h2{
     margin-top: 15px;
     letter-spacing: 2px
 }
+
 .btn:hover {
     background: #289bb8;
     color: #fff;
@@ -111,7 +121,7 @@ h2{
     0% {
         left: -100%;
     }
-    50%,100% {
+    50%, 100% {
         left: 100%;
     }
 }
@@ -130,7 +140,7 @@ h2{
     0% {
         top: -100%;
     }
-    50%,100% {
+    50%, 100% {
         top: 100%;
     }
 }
@@ -149,7 +159,7 @@ h2{
     0% {
         right: -100%;
     }
-    50%,100% {
+    50%, 100% {
         right: 100%;
     }
 }
@@ -168,7 +178,7 @@ h2{
     0% {
         bottom: -100%;
     }
-    50%,100% {
+    50%, 100% {
         bottom: 100%;
     }
 }

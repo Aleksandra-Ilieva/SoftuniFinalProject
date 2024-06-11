@@ -1,4 +1,4 @@
-package org.example.softunifinalproject.model;
+package org.example.softunifinalproject.model.entity;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

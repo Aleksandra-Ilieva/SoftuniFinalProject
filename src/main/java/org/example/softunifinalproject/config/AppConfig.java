@@ -3,6 +3,7 @@ package org.example.softunifinalproject.config;
 import org.example.softunifinalproject.model.enums.RoleType;
 import org.example.softunifinalproject.repository.UserRepository;
 import org.example.softunifinalproject.service.impl.ApplicationUserDetailsService;
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -52,5 +53,11 @@ public class AppConfig {
     @Bean
     public UserDetailsService userDetailsService(){
         return new ApplicationUserDetailsService(userRepository);
+    }
+
+
+    @Bean
+    public ModelMapper modelMapper(){
+        return new ModelMapper();
     }
 }

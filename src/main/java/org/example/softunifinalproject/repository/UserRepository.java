@@ -1,7 +1,6 @@
 package org.example.softunifinalproject.repository;
 
-import aj.org.objectweb.asm.commons.Remapper;
-import org.example.softunifinalproject.model.User;
+import org.example.softunifinalproject.model.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

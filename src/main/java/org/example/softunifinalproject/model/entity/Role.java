@@ -1,9 +1,8 @@
-package org.example.softunifinalproject.model;
+package org.example.softunifinalproject.model.entity;
 
 import jakarta.persistence.*;
 import org.example.softunifinalproject.model.enums.RoleType;
 
-import java.util.List;
 @Entity
 @Table(name = "roles")
 public class Role extends BaseEntity {

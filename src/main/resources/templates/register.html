@@ -3,33 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" th:href="@{css/reset.css}">
     <link rel="stylesheet" th:href="@{css/header.css}">
     <link rel="stylesheet" th:href="@{css/register.css}">
     <link rel="stylesheet" th:href="@{css/footer.css}">
+
+
 </head>
 <body>
 <header th:replace="fragments/header :: header"></header>
 <main>
     <section class="hero">
     </section>
-
     <div class="login-page">
-        <div class="form">
-            <form class="register-form" method="POST">
+        <div th:object="${registerDto}" class="form">
+            <form class="register-form" th:action="@{/register}" th:method="POST">
                 <h2>Register</h2>
-                <input type="text" placeholder="Full Name *" required/>
-                <input type="text" placeholder="Username *" required/>
-                <input type="email" placeholder="Email *" required/>
-                <input type="password" placeholder="Password *" required/>
-                <input type="password" placeholder="Confirm Password *" required/>
-                <a class="btn" href="#">
+                <input th:field="*{fullName}" name="fullName" type="text" placeholder="Full Name *" required/>
+                <small th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}" class="text-danger"></small>
+                <input th:field="*{username}"  name="username" type="text" placeholder="Username *" required/>
+                <small th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="text-danger"></small>
+                <input th:field="*{email}"  name="email" type="email" placeholder="Email *" required/>
+                <small th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></small>
+                <input th:field="*{password}"  name="password" type="password" placeholder="Password *" required/>
+                <small th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-danger"></small>
+                <input th:field="*{confirmPassword}"  name="confirmPassword" type="password" placeholder="Confirm Password *" required/>
+                <small th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}" class="text-danger"></small>
+                <button type="submit" class="btn" href="#">
                     <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
                     Create
-                </a>
+                </button>
                 <p class="message">Already registered? <a href="#">Sign In</a></p>
             </form>
         </div>

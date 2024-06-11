@@ -1,7 +1,6 @@
 package org.example.softunifinalproject.service.impl;
 
-import org.example.softunifinalproject.model.User;
-import org.example.softunifinalproject.model.enums.RoleType;
+import org.example.softunifinalproject.model.entity.User;
 import org.example.softunifinalproject.repository.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

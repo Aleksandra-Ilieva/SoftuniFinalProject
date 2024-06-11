@@ -1,18 +1,15 @@
 package org.example.softunifinalproject.init;
 
-import org.example.softunifinalproject.model.Role;
-import org.example.softunifinalproject.model.User;
+import org.example.softunifinalproject.model.entity.Role;
+import org.example.softunifinalproject.model.entity.User;
 import org.example.softunifinalproject.model.enums.RoleType;
 import org.example.softunifinalproject.repository.RoleRepository;
 import org.example.softunifinalproject.repository.UserRepository;
-import org.example.softunifinalproject.service.RoleService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Component
 public class DbInitialInit implements CommandLineRunner {
@@ -55,8 +52,6 @@ public class DbInitialInit implements CommandLineRunner {
             user.setFullName("Admin Adminov");
             user.setUsername("admin");
             user.setRoles(roles);
-            //TODO make it with passwordEncoder
-            user.setPhoneNumber("1234567890");
             userRepository.save(user);
 
         }
