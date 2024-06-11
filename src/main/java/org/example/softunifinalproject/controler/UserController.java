@@ -1,16 +1,21 @@
 package org.example.softunifinalproject.controler;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.example.softunifinalproject.model.dto.UserRegisterDto;
-import org.example.softunifinalproject.model.entity.User;
 import org.example.softunifinalproject.service.UserService;
+import org.springframework.security.web.WebAttributes;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.security.sasl.AuthenticationException;
 
 @Controller
 public class UserController {
@@ -31,9 +36,14 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public String login() {
+    public String login(@RequestParam(name = "error", required = false) String error, Model model) {
+        if (error != null) {
+            model.addAttribute("error", "Invalid username and password.");
+        }
         return "login";
     }
+
+
 
     @PostMapping("/register")
     public String register(@Valid UserRegisterDto registerDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {

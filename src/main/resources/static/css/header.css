@@ -40,7 +40,7 @@ ul{
     list-style: none;
 }
 
-ul a{
+ul li a{
     text-decoration: none;
     color: #ffffff;
     padding-top: 8px;
@@ -60,4 +60,23 @@ nav ul li a:hover {
     background-color: white; /* Променя цвета на текста на бяло */
     border: 2px solid #0174cf;; /* Добавя синьо подчертаване */
     color: black;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.logout{
+    background-color: white; /* Променя цвета на текста на бяло */
+    /* Добавя синьо подчертаване */
+    color: black;
+    padding: 5px 7px;
+    margin-left: 10px;
+    text-decoration: none;
+    border-radius: 14px;
+    border: 2px solid #0174cf;
+    cursor:  pointer;
 }

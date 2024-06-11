@@ -58,6 +58,18 @@ button{
     background: transparent;
 
 }
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important; /* Избиране на прозрачен фон */
+    transition: background-color 5000s ease-in-out 0s; /* Премахване на цветната промяна при фокусиране */
+
+}
+input:-webkit-autofill {
+    -webkit-text-fill-color: white !important; /* Задаване на бял цвят на текста */
+    caret-color: white;
+}
+.text-danger {
+    color: #dc3545;
+}
 h2{
     color:white;
     font-size: 3rem;

@@ -13,8 +13,11 @@
 <main>
     <section class="hero">
     </section>
-    <div class="login-page">
         <div class="form">
+            <div class="login-page">
+                <div th:if="${param.error}" class="text-danger">
+                    Invalid username and password.
+                </div>
             <form class="login-form"     th:method="POST"
                   th:action="@{/login}">
                 <h2></i> Login</h2>

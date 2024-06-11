@@ -36,11 +36,11 @@ public class AppConfig {
                                 .loginPage("/login")
                                 .passwordParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_PASSWORD_KEY)
                                 .usernameParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_USERNAME_KEY)
-                                .defaultSuccessUrl("/").failureForwardUrl("/login")
+                                .defaultSuccessUrl("/").failureUrl("/login?error=true").permitAll()
 
 
 
-                ).logout((logout)-> logout.logoutUrl("/users/logout").logoutSuccessUrl("/").invalidateHttpSession(true));
+                ).logout((logout)-> logout.logoutUrl("/logout").logoutSuccessUrl("/").invalidateHttpSession(true).permitAll());
 
         return http.build();
     }
