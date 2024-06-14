@@ -16,51 +16,62 @@
         <section class="users">
             <div class="table-wrapper">
                 <h1>Users</h1>
+
                 <table>
-                    <table>
-                        <tr>
-                            <th>Username</th>
-                            <th>Phone Number</th>
-                            <th>Ban/Unban</th>
-                            <th>SetRole</th>
-                        </tr>
-                        <tr>
-                            <td>Shopka</td>
-                            <td>03731781</td>
-                            <td><a class="cancel">Ban/Unban</a></td>
-                            <td >
-                                <select name="role">
-                                    <option value="user">User</option>
-                                    <option value="moderator">Moderator</option>
-                                    <option value="admin">Admin</option>
-                                    <option value="all">ALL</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Shopka</td>
-                            <td>03731781</td>
-                            <td><a class="cancel">Ban/Unban</a></td>
-                            <td >
-                                <select name="role">
-                                    <option value="user">User</option>
-                                    <option value="moderator">Moderator</option>
-                                    <option value="admin">Admin</option>
-                                    <option value="all">ALL</option>
-                                </select>
-                            </td>
-                        </tr>
-
-
-
-                    </table>
+                    <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Roles</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="u : ${viewAllUsersDto.getUsers()}">
+                        <!-- Форма за всеки ред -->
+                            <td th:text="${u.username}" ></td>
+                            <td th:text="${u.email}"></td>
+                        <td>
+                            <ul class="role-list">
+                                <li>
+                                    <div class="dropdown">
+                                        <button class="dropbtn">Roles</button>
+                                        <div class="dropdown-content">
+                                            <ul th:each="role : ${u.getRoleNames()}">
+                                                <li th:text="${role}"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    </tbody>
                 </table>
-
             </div>
+        </section>
+
+        <section class="setRole">
+            <h1>Set Role</h1>
+            <form th:object="${setRoleDto}" class="roleForm" th:method="POST" th:action="@{/admin/set/role}">
+                <input th:field="*{username}"  placeholder="username" name="username">
+                <small th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="text-danger"></small>
+                <input th:field="*{email}"  placeholder="email" name="email">
+                <small  th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></small>
+                <select name="roleType">
+                    <option value="user">USER</option>
+                    <option value="doctor">DOCTOR</option>
+                    <option value="admin">ADMIN</option>
+                    <option value="all">ALL</option>
+                </select>
+                <button id="save" class="cancel" type="submit">Save</button>
+            </form>
+
+        </section>
     </section>
-    </section>
+
 
 </main>
 <footer th:replace="fragments/footer :: footer"></footer>
 </body>
+<script src="/js/dropDownMenu.js"></script>
 </html>

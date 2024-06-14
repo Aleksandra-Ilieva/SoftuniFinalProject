@@ -10,6 +10,10 @@
     text-shadow: 1px 1px 1px rgb(80, 79, 79);
     padding-bottom: 50px;
     padding-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
 
 
 }
@@ -61,32 +65,68 @@ table {
     width: 80%;
 
 }
+.setRole h1{
+    color: white;
+    font-size: 4rem;
+}
+.setRole input{
+    padding: 10px;
+    border-radius: 6px;
+    background-color: transparent;
+    color: white;
+}
 
-table .cancel{
-    text-decoration: none;
-    color: #ffffff;
-    padding-top: 6px;
-    padding-left: 8px;
-    border-radius: 14px;
-    padding-right: 10px;
-    padding-bottom: 8px;
-    background-color:  red;
-    border-top-width: 0px;
-    border-left-width: 0px;
-    border-right-width: 0px;
-    border-bottom-width: 0px;
-    cursor:  pointer;
-    font-size: 12px;
+.setRole select{
+    padding: 10px;
+    border-radius: 6px;
+    background-color: transparent;
+    color: white;
+}
+.setRole select option{
+    padding: 10px;
+    border-radius: 6px;
+    background-color: rgba(0,0,0,.9);
+    color: white;
+}
+.roleForm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 9px;
+}
+.text-danger{
+    color: red;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+
+}
+ .cancel{
+     text-decoration: none;
+     color: #ffffff;
+     padding-top: 6px;
+     padding-left: 12px;
+     border-radius: 14px;
+     padding-right: 12px;
+     padding-bottom: 8px;
+     background-color:  green;
+     border-top-width: 0px;
+     border-left-width: 0px;
+     border-right-width: 0px;
+     border-bottom-width: 0px;
+     cursor:  pointer;
+     font-size: 16px;
 
 }
 
-table .approve{
+ .approve{
     text-decoration: none;
     color: #ffffff;
     padding-top: 6px;
-    padding-left: 8px;
+    padding-left: 12px;
     border-radius: 14px;
-    padding-right: 10px;
+    padding-right: 12px;
     padding-bottom: 8px;
     background-color:  green;
     border-top-width: 0px;
@@ -94,17 +134,17 @@ table .approve{
     border-right-width: 0px;
     border-bottom-width: 0px;
     cursor:  pointer;
-    font-size: 12px;
+    font-size: 16px;
 
 }
 
-table .cancel:hover{
+ .cancel:hover{
     background-color: white; /* Променя цвета на текста на бяло */
-    border: 2px solid red;; /* Добавя синьо подчертаване */
+    border: 2px solid green;; /* Добавя синьо подчертаване */
     color: black;
 
 }
-table .approve:hover{
+ .approve:hover{
     background-color: white; /* Променя цвета на текста на бяло */
     border: 2px solid green;; /* Добавя синьо подчертаване */
     color: black;
@@ -114,6 +154,7 @@ td, th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
+
 
 }
 th{
@@ -126,4 +167,83 @@ tr:nth-child(even) {
 }
 tr:nth-child(odd) {
     color: white;
+}
+.setRole{
+    padding-bottom: 20px;
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 300px;
+    margin-top: 20px;
+    background: rgba(0,0,0,.9);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+    gap: 10px
+}
+
+
+/* Стилове за основния списък */
+.role-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Стилове за дропдаун контейнера */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Стилове за бутона на дропдауна */
+.dropbtn {
+    background-color: #0174cf;
+    color: white;
+    width: 100px;
+    text-align: center;
+    padding: 4px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 7px;
+    margin-left: 25px;
+
+}
+
+.dropbtn:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid #0174cf;
+}
+
+/* Стилове за съдържанието на дропдауна */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    color: black;
+    margin-left: 25px;
+    width: 100px;
+}
+
+.dropdown-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-content li {
+    padding: 10px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.dropdown-content li:hover {
+    background-color: #ddd;
 }

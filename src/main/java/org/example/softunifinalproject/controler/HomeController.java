@@ -39,10 +39,7 @@ public class HomeController {
         return "doctor-page";
     }
 
-    @GetMapping("/admin")
-    public String admin() {
-        return "admin";
-    }
+
 
     @GetMapping("/about")
     public String about() {
