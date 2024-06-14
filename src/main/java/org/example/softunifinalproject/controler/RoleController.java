@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
+@RequestMapping("/admin")
 public class RoleController {
     private final RoleService roleService;
     public final UserService userService;
@@ -25,14 +26,14 @@ public class RoleController {
     }
 
 
-    @GetMapping("/admin")
+    @GetMapping()
     public String admin(Model model) {
         ViewAllUsersDto viewAllUsersDto = this.userService.getAllUsers();
         model.addAttribute("viewAllUsersDto", viewAllUsersDto);
 
         return "admin";
     }
-    @PostMapping("/admin/set/role")
+    @PostMapping("/set/role")
     public String setRole(@Valid SetRoleDto setRoleDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
             redirectAttributes

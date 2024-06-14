@@ -16,6 +16,17 @@ public class Consultation extends BaseEntity {
     @Column(nullable = false)
     private LocalDateTime dateTime;
 
+    @Column()
+    private boolean isAccepted;
+
+    public boolean isAccepted() {
+        return isAccepted;
+    }
+
+    public void setAccepted(boolean accepted) {
+        isAccepted = accepted;
+    }
+
     public User getUser() {
         return user;
     }

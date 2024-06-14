@@ -25,11 +25,6 @@ public class HomeController {
         return "prices";
     }
 
-
-    @GetMapping("/appointment")
-    public String appointment() {
-        return "appointment";
-    }
     @GetMapping("/profile")
     public String profile() {
         return "profile";

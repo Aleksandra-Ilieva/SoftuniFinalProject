@@ -26,9 +26,9 @@
             <li sec:authorize="!isAuthenticated()" class="register"><a th:href="@{/register}">Register</a></li>
             <li sec:authorize="!isAuthenticated()"  class="login"><a th:href="@{/login}">Login</a></li>
 
-            <li  ><a sec:authorize="isAuthenticated()" th:href="@{/appointment}">Book Consultation</a></li>
-            <li  ><a sec:authorize="isAuthenticated()" th:href="@{/profile}">My profile</a></li>
-            <li  ><a sec:authorize="hasAnyRole('ADMIN','DOCTOR')" th:href="@{/doctor-page}">My schedule</a></li>
+            <li sec:authorize="!hasRole('DOCTOR') and hasRole('USER')" ><a sec:authorize="isAuthenticated()" th:href="@{/appointment}">Book Consultation</a></li>
+            <li  sec:authorize="!hasRole('DOCTOR') and hasRole('USER')" ><a sec:authorize="isAuthenticated()" th:href="@{/profile}">My profile</a></li>
+            <li sec:authorize="!hasRole('ADMIN') and hasRole('USER')"  ><a sec:authorize="hasAnyRole('DOCTOR')" th:href="@{/doctor-page}">My schedule</a></li>
             <li  ><a sec:authorize="hasRole('ADMIN')" th:href="@{/admin}">Admin panel</a></li>
 
 
