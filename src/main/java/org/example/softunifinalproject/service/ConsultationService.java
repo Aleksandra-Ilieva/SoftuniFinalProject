@@ -9,4 +9,6 @@ public interface ConsultationService {
     boolean saveAppointment(ConsultationDto consultationDto);
 
     AllConsultationsView getAllConsultations();
+
+    void cancelConsultation(long id);
 }

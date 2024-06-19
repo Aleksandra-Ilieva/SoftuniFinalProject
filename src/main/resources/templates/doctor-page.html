@@ -30,7 +30,7 @@
                             <td th:text="${c.email}" >Bobi</td>
                             <td th:text="${c.date}">2024.07.12</td>
                             <td th:text="${c.time}">12:20</td>
-                            <td><a class="cancel">Cancel</a></td>
+                            <td><a class="cancel" th:href="@{/doctor-page/all/{id}(id = ${c.getId()})}">Cancel</a></td>
                             <td><a class="approve">Approve</a></td>
                         </tr>
                     </table>

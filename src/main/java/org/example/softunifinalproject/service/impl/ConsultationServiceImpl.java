@@ -62,4 +62,9 @@ public class ConsultationServiceImpl implements ConsultationService {
     allConsultationsView.setConsultationDtoList(consultationDtos);
         return allConsultationsView;
     }
+
+    @Override
+    public void cancelConsultation(long id) {
+        this.consultationRepository.deleteById(id);
+    }
 }
