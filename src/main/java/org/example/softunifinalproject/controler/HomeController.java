@@ -29,11 +29,6 @@ public class HomeController {
     public String profile() {
         return "profile";
     }
-    @GetMapping("/doctor-page")
-    public String doctorPage() {
-        return "doctor-page";
-    }
-
 
 
     @GetMapping("/about")

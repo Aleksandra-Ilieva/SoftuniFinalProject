@@ -15,37 +15,25 @@
         <section class="schedule">
             <div class="new-appointments table">
                 <h1>New Appointments</h1>
-                <table>
+
                     <table>
                         <tr>
                             <th>Username</th>
-                            <th>Phone Number</th>
+                            <th>Email</th>
                             <th>Date</th>
                             <th>Time</th>
                             <th>Cancel</th>
                             <th>Approve</th>
                         </tr>
-                        <tr>
-                            <td>Bobi</td>
-                            <td>040848833</td>
-                            <td>2024.07.12</td>
-                            <td>12:20</td>
+                        <tr th:each="c: ${consultations.getConsultationDtoList()}" >
+                            <td th:text="${c.username}" >Bobi</td>
+                            <td th:text="${c.email}" >Bobi</td>
+                            <td th:text="${c.date}">2024.07.12</td>
+                            <td th:text="${c.time}">12:20</td>
                             <td><a class="cancel">Cancel</a></td>
                             <td><a class="approve">Approve</a></td>
                         </tr>
-                        <tr>
-                            <td>Shopka</td>
-                            <td>03731781</td>
-                            <td>2024.10.12</td>
-                            <td>15:00</td>
-                            <td><a class="cancel">Cancel</a></td>
-                            <td><a class="approve">Approve</a></td>
-                        </tr>
-
-
-
                     </table>
-                </table>
 
             </div>
             <div class="approved-appointments table">

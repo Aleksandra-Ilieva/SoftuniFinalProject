@@ -13,12 +13,13 @@ import java.time.LocalTime;
 public class ConsultationDto {
     //TODO направи  custom анотации за допълнителна валидация
 
+    private long id;
+
     @Email
     @NotNull
     @NotNull
     private String email;
     @NotNull
-    @Length(min = 5, max = 20)
     private String username;
 
     @FutureOrPresent
@@ -30,7 +31,13 @@ public class ConsultationDto {
     public ConsultationDto() {
     }
 
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getEmail() {
         return email;

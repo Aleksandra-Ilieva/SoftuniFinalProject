@@ -1,5 +1,6 @@
 package org.example.softunifinalproject.service.impl;
 
+import org.example.softunifinalproject.model.dto.AllConsultationsView;
 import org.example.softunifinalproject.model.dto.ConsultationDto;
 import org.example.softunifinalproject.model.entity.Consultation;
 import org.example.softunifinalproject.model.entity.User;
@@ -10,6 +11,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ConsultationServiceImpl implements ConsultationService {
@@ -40,5 +43,23 @@ public class ConsultationServiceImpl implements ConsultationService {
         return true;
 
 
+    }
+
+    @Override
+    public AllConsultationsView getAllConsultations() {
+    List<Consultation> consultations=    this.consultationRepository.findAll();
+    List<ConsultationDto> consultationDtos= new ArrayList<>();
+    for (Consultation consultation : consultations) {
+        ConsultationDto consultationDto = new ConsultationDto();
+        consultationDto.setId(consultation.getId());
+        consultationDto.setDate(consultation.getDateTime().toLocalDate());
+        consultationDto.setTime(consultation.getDateTime().toLocalTime());
+        consultationDto.setEmail(consultation.getUser().getEmail());
+        consultationDto.setUsername(consultation.getUser().getUsername());
+        consultationDtos.add(consultationDto);
+    }
+    AllConsultationsView allConsultationsView = new AllConsultationsView();
+    allConsultationsView.setConsultationDtoList(consultationDtos);
+        return allConsultationsView;
     }
 }

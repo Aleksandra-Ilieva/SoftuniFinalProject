@@ -16,14 +16,15 @@ public class Consultation extends BaseEntity {
     @Column(nullable = false)
     private LocalDateTime dateTime;
 
-    @Column()
-    private boolean isAccepted;
+    @Column
+    private Boolean isAccepted;
 
-    public boolean isAccepted() {
+
+    public Boolean getAccepted() {
         return isAccepted;
     }
 
-    public void setAccepted(boolean accepted) {
+    public void setAccepted(Boolean accepted) {
         isAccepted = accepted;
     }
 

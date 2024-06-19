@@ -1,6 +1,7 @@
 package org.example.softunifinalproject.controler;
 
 import jakarta.validation.Valid;
+import org.example.softunifinalproject.model.dto.AllConsultationsView;
 import org.example.softunifinalproject.model.dto.ConsultationDto;
 import org.example.softunifinalproject.model.entity.Consultation;
 import org.example.softunifinalproject.service.ConsultationService;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.List;
+
 @Controller
 public class ConsultationController {
     private final ConsultationService consultationService;
@@ -20,6 +23,18 @@ public class ConsultationController {
         this.consultationService = consultationService;
     }
 
+    @GetMapping("/doctor-page")
+    public String doctorPage(Model model) {
+        AllConsultationsView consultationsView =this.consultationService.getAllConsultations();
+        model.addAttribute("consultations", consultationsView);
+        return "doctor-page";
+    }
+
+    @PostMapping("/doctor-page/all")
+    public String postAllAppointments(){
+
+        return "";
+    }
 
     @GetMapping("/appointment")
     public String appointment() {
