@@ -1,6 +1,7 @@
 package org.example.softunifinalproject.service.impl;
 
-import org.example.softunifinalproject.model.dto.AllConsultationsView;
+import org.example.softunifinalproject.model.dto.AllNewConsultationsDto;
+import org.example.softunifinalproject.model.dto.ApprovedConsultationsDto;
 import org.example.softunifinalproject.model.dto.ConsultationDto;
 import org.example.softunifinalproject.model.entity.Consultation;
 import org.example.softunifinalproject.model.entity.User;
@@ -46,25 +47,58 @@ public class ConsultationServiceImpl implements ConsultationService {
     }
 
     @Override
-    public AllConsultationsView getAllConsultations() {
+    public AllNewConsultationsDto getAllConsultations() {
     List<Consultation> consultations=    this.consultationRepository.findAll();
     List<ConsultationDto> consultationDtos= new ArrayList<>();
     for (Consultation consultation : consultations) {
+        if(consultation.getAccepted()==null || !consultation.getAccepted().equals(true)){
+            ConsultationDto dto=mapToConsultatinDto(consultation, consultationDtos);
+            consultationDtos.add(dto);
+        }
+
+    }
+    AllNewConsultationsDto allConsultationsView = new AllNewConsultationsDto();
+    allConsultationsView.setConsultationDtoList(consultationDtos);
+        return allConsultationsView;
+    }
+
+    private static ConsultationDto mapToConsultatinDto(Consultation consultation, List<ConsultationDto> consultationDtos) {
         ConsultationDto consultationDto = new ConsultationDto();
         consultationDto.setId(consultation.getId());
         consultationDto.setDate(consultation.getDateTime().toLocalDate());
         consultationDto.setTime(consultation.getDateTime().toLocalTime());
         consultationDto.setEmail(consultation.getUser().getEmail());
         consultationDto.setUsername(consultation.getUser().getUsername());
-        consultationDtos.add(consultationDto);
-    }
-    AllConsultationsView allConsultationsView = new AllConsultationsView();
-    allConsultationsView.setConsultationDtoList(consultationDtos);
-        return allConsultationsView;
+
+        return consultationDto;
     }
 
     @Override
     public void cancelConsultation(long id) {
         this.consultationRepository.deleteById(id);
+    }
+
+    @Override
+    public void approve(long id) {
+        Consultation consultation = this.consultationRepository.findById(id).get();
+        consultation.setAccepted(true);
+        this.consultationRepository.save(consultation);
+    }
+
+    @Override
+    public ApprovedConsultationsDto getAllApprovedConsultations() {
+        List<Consultation> consultations=    this.consultationRepository.findAll();
+        List<ConsultationDto> consultationDtos= new ArrayList<>();
+        for (Consultation consultation : consultations) {
+            if(consultation.getAccepted() != null && consultation.getAccepted().equals(true)){
+                ConsultationDto dto =mapToConsultatinDto(consultation, consultationDtos);
+                consultationDtos.add(dto);
+            }
+
+        }
+        ApprovedConsultationsDto approvedConsultationsDto = new ApprovedConsultationsDto();
+        approvedConsultationsDto.setConsultations(consultationDtos);
+
+        return approvedConsultationsDto;
     }
 }

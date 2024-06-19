@@ -1,9 +1,9 @@
 package org.example.softunifinalproject.controler;
 
 import jakarta.validation.Valid;
-import org.example.softunifinalproject.model.dto.AllConsultationsView;
+import org.example.softunifinalproject.model.dto.AllNewConsultationsDto;
+import org.example.softunifinalproject.model.dto.ApprovedConsultationsDto;
 import org.example.softunifinalproject.model.dto.ConsultationDto;
-import org.example.softunifinalproject.model.entity.Consultation;
 import org.example.softunifinalproject.service.ConsultationService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.util.List;
 
 @Controller
 public class ConsultationController {
@@ -26,24 +24,26 @@ public class ConsultationController {
 
     @GetMapping("/doctor-page")
     public String doctorPage(Model model) {
-        AllConsultationsView consultationsView =this.consultationService.getAllConsultations();
+        AllNewConsultationsDto consultationsView =this.consultationService.getAllConsultations();
+        ApprovedConsultationsDto approvedConsultationsDto = this.consultationService.getAllApprovedConsultations();
         model.addAttribute("consultations", consultationsView);
+        model.addAttribute("approvedConsultations", approvedConsultationsDto);
         return "doctor-page";
     }
 
-    @GetMapping("/doctor-page/all/{id}")
-    public String cancelConsultation(@PathVariable long id, Model model) {
+    @GetMapping("/doctor-page/all/cancel/{id}")
+    public String cancelConsultation(@PathVariable long id) {
         this.consultationService.cancelConsultation(id);
         return "redirect:/doctor-page";
     }
 
-
-
-    @PostMapping("/doctor-page/all")
-    public String postAllAppointments(){
-
-        return "";
+    @GetMapping("/doctor-page/all/approve/{id}")
+    public String approveConsultation(@PathVariable long id) {
+        this.consultationService.approve(id);
+        return "redirect:/doctor-page";
     }
+
+
 
     @GetMapping("/appointment")
     public String appointment() {

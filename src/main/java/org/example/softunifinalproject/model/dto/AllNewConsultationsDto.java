@@ -2,7 +2,7 @@ package org.example.softunifinalproject.model.dto;
 
 import java.util.List;
 
-public class AllConsultationsView {
+public class AllNewConsultationsDto {
     private List<ConsultationDto> consultationDtoList;
 
 

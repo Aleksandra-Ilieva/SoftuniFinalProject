@@ -30,8 +30,8 @@
                             <td th:text="${c.email}" >Bobi</td>
                             <td th:text="${c.date}">2024.07.12</td>
                             <td th:text="${c.time}">12:20</td>
-                            <td><a class="cancel" th:href="@{/doctor-page/all/{id}(id = ${c.getId()})}">Cancel</a></td>
-                            <td><a class="approve">Approve</a></td>
+                            <td><a class="cancel" th:href="@{/doctor-page/all/cancel/{id}(id = ${c.getId()})}">Cancel</a></td>
+                            <td><a class="approve" th:href="@{/doctor-page/all/approve/{id}(id = ${c.getId()})}">Approve</a></td>
                         </tr>
                     </table>
 
@@ -41,25 +41,18 @@
                 <table>
                     <tr>
                         <th>Username</th>
-                        <th>Phone Number</th>
+                        <th>Email</th>
                         <th>Date</th>
                         <th>Time</th>
                         <th>Remove</th>
                     </tr>
-                    <tr>
-                        <td>Ivanka_5</td>
-                        <td>08536783</td>
-                        <td>2024.06.10</td>
-                        <td>12:30</td>
-                        <td><a class="cancel">Remove</a></td>
+                    <tr th:each="c: ${approvedConsultations.getConsultations()}" >
+                        <td th:text="${c.username}" >Bobi</td>
+                        <td th:text="${c.email}" >Bobi</td>
+                        <td th:text="${c.date}">2024.07.12</td>
+                        <td th:text="${c.time}">12:20</td>
+                        <td><a class="cancel" th:href="@{/doctor-page/all/delete/{id}(id = ${c.getId()})}">Remove</a></td>
 
-                    </tr>
-                    <tr>
-                        <td>Bojka</td>
-                        <td>04884843</td>
-                        <td>2024.06.15</td>
-                        <td>15:30</td>
-                        <td><a class="cancel">Remove</a></td>
                     </tr>
                 </table>
                 </table>
