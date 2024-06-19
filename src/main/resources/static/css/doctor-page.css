@@ -1,3 +1,4 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css";
 .hero{
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(44, 44, 44, 0.3)),
     url('../images/bg-img.jpg') no-repeat center center;
@@ -43,8 +44,8 @@ main{
     color: white;
 }
 .table{
-    padding-bottom: 80px;
-    padding-top: 80px;
+    padding-bottom: 60px;
+    padding-top: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -61,7 +62,7 @@ main{
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 80%;
+    width: 90%;
 
 }
 
@@ -129,5 +130,37 @@ tr:nth-child(even) {
 }
 tr:nth-child(odd) {
     color: white;
+
+}
+
+.wrapper-check{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+ div .consulted{
+    text-decoration: none;
+    color: #ffffff;
+    padding-top: 6px;
+    padding-left: 8px;
+    border-radius: 14px;
+    padding-right: 10px;
+    padding-bottom: 8px;
+    background-color:  green;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    cursor:  pointer;
+    font-size: 12px;
+
+}
+
+ div .consulted:hover{
+    background-color: white; /* Променя цвета на текста на бяло */
+    border: 2px solid green;; /* Добавя синьо подчертаване */
+    color: black;
 
 }

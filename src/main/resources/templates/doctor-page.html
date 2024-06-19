@@ -51,7 +51,12 @@
                         <td th:text="${c.email}" >Bobi</td>
                         <td th:text="${c.date}">2024.07.12</td>
                         <td th:text="${c.time}">12:20</td>
-                        <td><a class="cancel" th:href="@{/doctor-page/all/delete/{id}(id = ${c.getId()})}">Remove</a></td>
+                        <td>
+                            <div class="wrapper-check">
+                                <a class="cancel consulted" th:href="@{/doctor-page/all/delete/{id}(id = ${c.getId()})}">Consulted<i class="fa-solid fa-check"></i></a>
+                            </div>
+                        </td>
+
 
                     </tr>
                 </table>

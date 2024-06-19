@@ -101,4 +101,9 @@ public class ConsultationServiceImpl implements ConsultationService {
 
         return approvedConsultationsDto;
     }
+
+    @Override
+    public void deleteConsultedAppointment(long id) {
+        this.consultationRepository.deleteById(id);
+    }
 }

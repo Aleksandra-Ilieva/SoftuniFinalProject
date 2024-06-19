@@ -14,4 +14,6 @@ public interface ConsultationService {
     void approve(long id);
 
     ApprovedConsultationsDto getAllApprovedConsultations();
+
+    void deleteConsultedAppointment(long id);
 }

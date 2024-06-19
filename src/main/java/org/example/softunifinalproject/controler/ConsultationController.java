@@ -44,6 +44,11 @@ public class ConsultationController {
     }
 
 
+    @GetMapping("/doctor-page/all/delete/{id}")
+    public String deleteConsultedAppointment(@PathVariable long id) {
+        this.consultationService.deleteConsultedAppointment(id);
+        return "redirect:/doctor-page";
+    }
 
     @GetMapping("/appointment")
     public String appointment() {
