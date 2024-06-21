@@ -15,5 +15,5 @@ public interface ConsultationService {
 
     ApprovedConsultationsDto getAllApprovedConsultations();
 
-    void deleteConsultedAppointment(long id);
+    void setAsConsulted(long id);
 }

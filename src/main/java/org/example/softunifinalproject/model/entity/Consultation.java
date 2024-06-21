@@ -20,6 +20,18 @@ public class Consultation extends BaseEntity {
     private Boolean isAccepted;
 
 
+    //TODO Scheduler for deleting consulted appointments
+    @Column
+    private Boolean isConsulted;
+
+    public Boolean getConsulted() {
+        return isConsulted;
+    }
+
+    public void setConsulted(Boolean consulted) {
+        isConsulted = consulted;
+    }
+
     public Boolean getAccepted() {
         return isAccepted;
     }

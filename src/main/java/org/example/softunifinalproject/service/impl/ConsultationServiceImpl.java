@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ConsultationServiceImpl implements ConsultationService {
@@ -90,7 +91,7 @@ public class ConsultationServiceImpl implements ConsultationService {
         List<Consultation> consultations=    this.consultationRepository.findAll();
         List<ConsultationDto> consultationDtos= new ArrayList<>();
         for (Consultation consultation : consultations) {
-            if(consultation.getAccepted() != null && consultation.getAccepted().equals(true)){
+            if(consultation.getAccepted() != null && consultation.getAccepted().equals(true) && (consultation.getConsulted()==null || !consultation.getConsulted())){
                 ConsultationDto dto =mapToConsultatinDto(consultation, consultationDtos);
                 consultationDtos.add(dto);
             }
@@ -103,7 +104,10 @@ public class ConsultationServiceImpl implements ConsultationService {
     }
 
     @Override
-    public void deleteConsultedAppointment(long id) {
-        this.consultationRepository.deleteById(id);
+    public void setAsConsulted(long id) {
+      Optional<Consultation> consultation=  this.consultationRepository.findById(id);
+      consultation.get().setConsulted(true);
+      this.consultationRepository.save(consultation.get());
+
     }
 }
