@@ -97,3 +97,11 @@ tr:nth-child(odd) {
     font-size: 2rem;
     margin-bottom: 20px;
 }
+
+.success{
+    color: green;
+}
+
+.fail{
+    color: red;
+}

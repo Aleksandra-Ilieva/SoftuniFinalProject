@@ -18,6 +18,10 @@
             <h1 th:text="${userConsultationDto.getUsername()}">Aleksandra</h1>
             <h2 th:if="${userConsultationDto.userConsultations.size() > 0}">Upcoming consultations</h2>
             <h2 class="text-danger" th:unless="${userConsultationDto.userConsultations.size() > 0}">No upcoming consultations</h2>
+            <div th:if="${message != null}">
+                <h3 class="success" th:if="${message.canceled}">Consultation cancellation successful!</h3>
+                <h3 class="fail" th:unless="${message.canceled}">You can cancel a consultation 2 hours before it starts!</h3>
+            </div>
             <table>
                 <tr>
                     <th >Date</th>
@@ -27,7 +31,7 @@
                 <tr th:each="c:${userConsultationDto.getUserConsultations()}">
                     <td th:text="${c.getDate}" >Alfreds Futterkiste</td>
                     <td th:text="${c.getTime()}" >Maria Anders</td>
-                    <td><a>Cancel</a></td>
+                    <td><a th:href="@{/profile/cancel/{id}(id = ${c.getId()})}">Cancel</a></td>
                 </tr>
             </table>
         </section>
