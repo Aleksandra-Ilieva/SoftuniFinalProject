@@ -1,8 +1,11 @@
 package org.example.softunifinalproject.service.impl;
 
+import org.example.softunifinalproject.model.dto.ConsultationDto;
+import org.example.softunifinalproject.model.dto.profileDto.UserConsultationDto;
 import org.example.softunifinalproject.model.dto.UserDto;
 import org.example.softunifinalproject.model.dto.UserRegisterDto;
 import org.example.softunifinalproject.model.dto.ViewAllUsersDto;
+import org.example.softunifinalproject.model.entity.Consultation;
 import org.example.softunifinalproject.model.entity.Role;
 import org.example.softunifinalproject.model.entity.User;
 import org.example.softunifinalproject.repository.UserRepository;
@@ -12,8 +15,11 @@ import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -56,5 +62,26 @@ public class UserServiceImpl implements UserService {
 
         }
         return viewAllUsersDto;
+    }
+
+    @Override
+    public UserConsultationDto getUserProfile(Principal principal) {
+        UserConsultationDto userConsultationDto = new UserConsultationDto();
+        Optional<User> user = this.userRepository.findUserByEmail(principal.getName());
+
+        Set<Consultation> consultations = user.get().getConsultations();
+        List<ConsultationDto> consultationDtos = new ArrayList<>();
+        for (Consultation consultation : consultations) {
+            if(consultation.getConsulted()==null && consultation.getAccepted()!=null){
+                ConsultationDto dto = new ConsultationDto();
+                dto.setDate(consultation.getDateTime().toLocalDate());
+                dto.setTime(consultation.getDateTime().toLocalTime());
+                consultationDtos.add(dto);
+            }
+
+        }
+        userConsultationDto.setUsername(user.get().getUsername());
+        userConsultationDto.setUserConsultations(consultationDtos);
+        return userConsultationDto;
     }
 }

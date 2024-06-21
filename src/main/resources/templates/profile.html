@@ -15,24 +15,18 @@
 <main>
     <section class="hero">
         <section class="profile">
-            <h1>Aleksandra</h1>
-
-
-                <h2>Upcoming consultations</h2>
+            <h1 th:text="${userConsultationDto.getUsername()}">Aleksandra</h1>
+            <h2 th:if="${userConsultationDto.userConsultations.size() > 0}">Upcoming consultations</h2>
+            <h2 class="text-danger" th:unless="${userConsultationDto.userConsultations.size() > 0}">No upcoming consultations</h2>
             <table>
                 <tr>
-                    <th>Date</th>
-                    <th>Time</th>
+                    <th >Date</th>
+                    <th >Time</th>
                     <th>Cancel</th>
                 </tr>
-                <tr>
-                    <td>Alfreds Futterkiste</td>
-                    <td>Maria Anders</td>
-                    <td><a>Cancel</a></td>
-                </tr>
-                <tr>
-                    <td>Alfreds Futterkiste</td>
-                    <td>Maria Anders</td>
+                <tr th:each="c:${userConsultationDto.getUserConsultations()}">
+                    <td th:text="${c.getDate}" >Alfreds Futterkiste</td>
+                    <td th:text="${c.getTime()}" >Maria Anders</td>
                     <td><a>Cancel</a></td>
                 </tr>
             </table>
