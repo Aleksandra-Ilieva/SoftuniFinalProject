@@ -1,11 +1,11 @@
 package org.example.softunifinalproject.service.impl;
 
 import org.example.softunifinalproject.model.dto.ConsultationDto;
-import org.example.softunifinalproject.model.dto.profileDto.ConsultationMessageDto;
-import org.example.softunifinalproject.model.dto.profileDto.UserConsultationDto;
+import org.example.softunifinalproject.model.dto.userProfileDto.ConsultationMessageDto;
+import org.example.softunifinalproject.model.dto.userProfileDto.UserConsultationDto;
 import org.example.softunifinalproject.model.dto.UserDto;
 import org.example.softunifinalproject.model.dto.UserRegisterDto;
-import org.example.softunifinalproject.model.dto.ViewAllUsersDto;
+import org.example.softunifinalproject.model.dto.adminPageDto.ViewAllUsersDto;
 import org.example.softunifinalproject.model.entity.Consultation;
 import org.example.softunifinalproject.model.entity.Role;
 import org.example.softunifinalproject.model.entity.User;

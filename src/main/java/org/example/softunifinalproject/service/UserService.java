@@ -1,9 +1,9 @@
 package org.example.softunifinalproject.service;
 
-import org.example.softunifinalproject.model.dto.profileDto.ConsultationMessageDto;
-import org.example.softunifinalproject.model.dto.profileDto.UserConsultationDto;
+import org.example.softunifinalproject.model.dto.userProfileDto.ConsultationMessageDto;
+import org.example.softunifinalproject.model.dto.userProfileDto.UserConsultationDto;
 import org.example.softunifinalproject.model.dto.UserRegisterDto;
-import org.example.softunifinalproject.model.dto.ViewAllUsersDto;
+import org.example.softunifinalproject.model.dto.adminPageDto.ViewAllUsersDto;
 
 import java.security.Principal;
 

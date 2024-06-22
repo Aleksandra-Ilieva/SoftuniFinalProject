@@ -1,4 +1,4 @@
-package org.example.softunifinalproject.model.dto.profileDto;
+package org.example.softunifinalproject.model.dto.userProfileDto;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

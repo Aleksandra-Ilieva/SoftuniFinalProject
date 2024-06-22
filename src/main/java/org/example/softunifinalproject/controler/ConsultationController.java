@@ -1,8 +1,8 @@
 package org.example.softunifinalproject.controler;
 
 import jakarta.validation.Valid;
-import org.example.softunifinalproject.model.dto.AllNewConsultationsDto;
-import org.example.softunifinalproject.model.dto.ApprovedConsultationsDto;
+import org.example.softunifinalproject.model.dto.doctorPageDto.AllNewConsultationsDto;
+import org.example.softunifinalproject.model.dto.doctorPageDto.ApprovedConsultationsDto;
 import org.example.softunifinalproject.model.dto.ConsultationDto;
 import org.example.softunifinalproject.service.ConsultationService;
 import org.springframework.stereotype.Controller;

@@ -1,7 +1,7 @@
 package org.example.softunifinalproject.service.impl;
 
-import org.example.softunifinalproject.model.dto.AllNewConsultationsDto;
-import org.example.softunifinalproject.model.dto.ApprovedConsultationsDto;
+import org.example.softunifinalproject.model.dto.doctorPageDto.AllNewConsultationsDto;
+import org.example.softunifinalproject.model.dto.doctorPageDto.ApprovedConsultationsDto;
 import org.example.softunifinalproject.model.dto.ConsultationDto;
 import org.example.softunifinalproject.model.entity.Consultation;
 import org.example.softunifinalproject.model.entity.User;

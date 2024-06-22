@@ -2,12 +2,9 @@ package org.example.softunifinalproject.controler;
 
 import jakarta.validation.Valid;
 import org.example.softunifinalproject.model.dto.SetRoleDto;
-import org.example.softunifinalproject.model.dto.ViewAllUsersDto;
-import org.example.softunifinalproject.repository.RoleRepository;
+import org.example.softunifinalproject.model.dto.adminPageDto.ViewAllUsersDto;
 import org.example.softunifinalproject.service.RoleService;
 import org.example.softunifinalproject.service.UserService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

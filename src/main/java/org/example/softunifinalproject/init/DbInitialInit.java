@@ -25,7 +25,6 @@ public class DbInitialInit implements CommandLineRunner {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
     }
-
     @Override
     public void run(String... args) throws Exception {
         if(roleRepository.count() == 0 && userRepository.count() == 0) {
@@ -43,9 +42,6 @@ public class DbInitialInit implements CommandLineRunner {
             roleRepository.save(role3);
 
             List<Role> roles = roleRepository.findAll();
-
-
-
             User user = new User();
             user.setEmail("admin@adminov.com");
             user.setPassword(passwordEncoder.encode("admin"));

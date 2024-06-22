@@ -1,4 +1,4 @@
-package org.example.softunifinalproject.model.dto.profileDto;
+package org.example.softunifinalproject.model.dto.userProfileDto;
 
 public class ConsultationMessageDto {
 

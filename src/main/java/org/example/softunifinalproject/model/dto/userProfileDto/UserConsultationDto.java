@@ -1,9 +1,7 @@
-package org.example.softunifinalproject.model.dto.profileDto;
+package org.example.softunifinalproject.model.dto.userProfileDto;
 
 import org.example.softunifinalproject.model.dto.ConsultationDto;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 
 public class UserConsultationDto {

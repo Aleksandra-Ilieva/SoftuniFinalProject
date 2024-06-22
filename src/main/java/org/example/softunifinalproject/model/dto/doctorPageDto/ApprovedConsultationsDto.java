@@ -1,4 +1,6 @@
-package org.example.softunifinalproject.model.dto;
+package org.example.softunifinalproject.model.dto.doctorPageDto;
+
+import org.example.softunifinalproject.model.dto.ConsultationDto;
 
 import java.util.List;
 

@@ -1,4 +1,6 @@
-package org.example.softunifinalproject.model.dto;
+package org.example.softunifinalproject.model.dto.adminPageDto;
+
+import org.example.softunifinalproject.model.dto.UserDto;
 
 import java.util.ArrayList;
 import java.util.List;
