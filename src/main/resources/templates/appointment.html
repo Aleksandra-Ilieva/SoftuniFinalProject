@@ -22,15 +22,17 @@
 
     <div class="login-page">
         <div class="form">
-            <form th:object="${consultationDto}" th:method="POST" th:action="@{/appointment}" class="register-form" method="POST">
-                <h2 >Book Consultation</h2>
-                <small class="sent" th:if="${isSend == true}" >Request sent successfully!</small>
-                <small class="text-danger" th:if="${isSend == false}"  >Invalid Username or Email!</small>
-                <input  th:field="*{email}" type="email" placeholder="Email *" required/>
-                <small th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></small>
-                <input th:field="*{username}" type="text" placeholder="Username *" required/>
-                <small th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="text-danger"></small>
-                <input  th:field="*{date}" type="date" placeholder="Appointment Date *" required/>
+            <form th:object="${consultationDto}" th:method="POST" th:action="@{/appointment}" class="register-form"
+                  method="POST">
+                <h2>Book Consultation</h2>
+                <small class="sent" th:if="${isSend == true}">Request sent successfully!</small>
+                <small class="text-danger" th:if="${isSend == false}">
+                    You can only reserve up to 2 consultations!</small>
+                <!--                <input  th:field="*{email}" type="email" placeholder="Email *" required/>-->
+                <!--                <small th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></small>-->
+                <!--                <input th:field="*{username}" type="text" placeholder="Username *" required/>-->
+                <!--                <small th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="text-danger"></small>-->
+                <input th:field="*{date}" type="date" placeholder="Appointment Date *" required/>
                 <small th:if="${#fields.hasErrors('date')}" th:errors="*{date}" class="text-danger"></small>
                 <input th:field="*{time}" type="time" placeholder="Appointment Time *" required/>
                 <small th:if="${#fields.hasErrors('time')}" th:errors="*{date}" class="text-danger"></small>

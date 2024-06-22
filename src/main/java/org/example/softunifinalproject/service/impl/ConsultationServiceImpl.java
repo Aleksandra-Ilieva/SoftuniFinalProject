@@ -11,6 +11,7 @@ import org.example.softunifinalproject.service.ConsultationService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.security.Principal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,16 +31,27 @@ public class ConsultationServiceImpl implements ConsultationService {
     }
 
     @Override
-    public boolean saveAppointment(ConsultationDto consultationDto) {
+    public boolean saveAppointment(ConsultationDto consultationDto, Principal principal) {
 
-        User user = this.userRepository.findUserByEmailAndUsername(consultationDto.getEmail(), consultationDto.getUsername());
-        if (user == null) {
+        Optional<User> user = this.userRepository.findUserByEmail(principal.getName());
+//        User user = this.userRepository.findUserByEmailAndUsername(consultationDto.getEmail(), consultationDto.getUsername());
+//        if (user == null) {
+//            return false;
+//        }
+        int currentCountOfAppointments = 0;
+        for (Consultation consultation : user.get().getConsultations()) {
+            if (consultation.getConsulted() == null) {
+                currentCountOfAppointments++;
+            }
+
+        }
+        if (currentCountOfAppointments > 2) {
             return false;
         }
         Consultation consultation = modelMapper.map(consultationDto, Consultation.class);
         LocalDateTime dateTime = consultationDto.getDate().atTime(consultationDto.getTime());
         consultation.setDateTime(dateTime);
-        consultation.setUser(user);
+        consultation.setUser(user.get());
         consultationRepository.save(consultation);
 
         return true;
@@ -49,17 +61,19 @@ public class ConsultationServiceImpl implements ConsultationService {
 
     @Override
     public AllNewConsultationsDto getAllConsultations() {
-    List<Consultation> consultations=    this.consultationRepository.findAll();
-    List<ConsultationDto> consultationDtos= new ArrayList<>();
-    for (Consultation consultation : consultations) {
-        if(consultation.getAccepted()==null || !consultation.getAccepted().equals(true)){
-            ConsultationDto dto=mapToConsultatinDto(consultation, consultationDtos);
-            consultationDtos.add(dto);
-        }
+        List<Consultation> consultations = this.consultationRepository.findAll();
+        List<ConsultationDto> consultationDtos = new ArrayList<>();
+        for (Consultation consultation : consultations) {
+            if (consultation.getAccepted() == null || !consultation.getAccepted().equals(true)) {
+                ConsultationDto dto = mapToConsultatinDto(consultation, consultationDtos);
+                dto.setEmail(consultation.getUser().getEmail());
+                dto.setUsername(consultation.getUser().getUsername());
+                consultationDtos.add(dto);
+            }
 
-    }
-    AllNewConsultationsDto allConsultationsView = new AllNewConsultationsDto();
-    allConsultationsView.setConsultationDtoList(consultationDtos);
+        }
+        AllNewConsultationsDto allConsultationsView = new AllNewConsultationsDto();
+        allConsultationsView.setConsultationDtoList(consultationDtos);
         return allConsultationsView;
     }
 
@@ -68,8 +82,6 @@ public class ConsultationServiceImpl implements ConsultationService {
         consultationDto.setId(consultation.getId());
         consultationDto.setDate(consultation.getDateTime().toLocalDate());
         consultationDto.setTime(consultation.getDateTime().toLocalTime());
-        consultationDto.setEmail(consultation.getUser().getEmail());
-        consultationDto.setUsername(consultation.getUser().getUsername());
 
         return consultationDto;
     }
@@ -88,11 +100,13 @@ public class ConsultationServiceImpl implements ConsultationService {
 
     @Override
     public ApprovedConsultationsDto getAllApprovedConsultations() {
-        List<Consultation> consultations=    this.consultationRepository.findAll();
-        List<ConsultationDto> consultationDtos= new ArrayList<>();
+        List<Consultation> consultations = this.consultationRepository.findAll();
+        List<ConsultationDto> consultationDtos = new ArrayList<>();
         for (Consultation consultation : consultations) {
-            if(consultation.getAccepted() != null && consultation.getAccepted().equals(true) && (consultation.getConsulted()==null || !consultation.getConsulted())){
-                ConsultationDto dto =mapToConsultatinDto(consultation, consultationDtos);
+            if (consultation.getAccepted() != null && consultation.getAccepted().equals(true) && (consultation.getConsulted() == null || !consultation.getConsulted())) {
+                ConsultationDto dto = mapToConsultatinDto(consultation, consultationDtos);
+                dto.setEmail(consultation.getUser().getEmail());
+                dto.setUsername(consultation.getUser().getUsername());
                 consultationDtos.add(dto);
             }
 
@@ -105,9 +119,9 @@ public class ConsultationServiceImpl implements ConsultationService {
 
     @Override
     public void setAsConsulted(long id) {
-      Optional<Consultation> consultation=  this.consultationRepository.findById(id);
-      consultation.get().setConsulted(true);
-      this.consultationRepository.save(consultation.get());
+        Optional<Consultation> consultation = this.consultationRepository.findById(id);
+        consultation.get().setConsulted(true);
+        this.consultationRepository.save(consultation.get());
 
     }
 }

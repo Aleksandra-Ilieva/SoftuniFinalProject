@@ -4,8 +4,10 @@ import org.example.softunifinalproject.model.dto.AllNewConsultationsDto;
 import org.example.softunifinalproject.model.dto.ApprovedConsultationsDto;
 import org.example.softunifinalproject.model.dto.ConsultationDto;
 
+import java.security.Principal;
+
 public interface ConsultationService {
-    boolean saveAppointment(ConsultationDto consultationDto);
+    boolean saveAppointment(ConsultationDto consultationDto, Principal principal);
 
     AllNewConsultationsDto getAllConsultations();
 

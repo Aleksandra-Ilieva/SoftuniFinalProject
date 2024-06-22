@@ -15,11 +15,8 @@ public class ConsultationDto {
 
     private long id;
 
-    @Email
-    @NotNull
-    @NotNull
     private String email;
-    @NotNull
+
     private String username;
 
     @FutureOrPresent
@@ -28,15 +25,13 @@ public class ConsultationDto {
     @DateTimeFormat(pattern = "hh:mm a")
     private LocalTime time;
 
-    public ConsultationDto() {
+
+    public String getUsername() {
+        return username;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
@@ -47,12 +42,15 @@ public class ConsultationDto {
         this.email = email;
     }
 
-    public String getUsername() {
-        return username;
+    public ConsultationDto() {
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public LocalTime getTime() {

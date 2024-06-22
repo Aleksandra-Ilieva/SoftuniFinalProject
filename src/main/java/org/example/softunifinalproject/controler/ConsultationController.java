@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.security.Principal;
+
 @Controller
 public class ConsultationController {
     private final ConsultationService consultationService;
@@ -56,7 +58,7 @@ public class ConsultationController {
     }
 
     @PostMapping("/appointment")
-    public String getAppointment(@Valid ConsultationDto consultationDto, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
+    public String getAppointment(@Valid ConsultationDto consultationDto, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model,Principal principal) {
         if (bindingResult.hasErrors()) {
             redirectAttributes
                     .addFlashAttribute("consultationDto", consultationDto)
@@ -64,15 +66,10 @@ public class ConsultationController {
 
             return "redirect:/appointment";
         }
-      boolean isSend=  this.consultationService.saveAppointment(consultationDto);
-        model.addAttribute("isSend", isSend);
-        if(isSend){
-            redirectAttributes.addFlashAttribute("isSend", true)
-            .addFlashAttribute("consultationDto", consultationDto);
-        }else {
-            redirectAttributes.addFlashAttribute("isSend", false)
-                    .addFlashAttribute("consultationDto", consultationDto);
-        }
+        boolean isSend = this.consultationService.saveAppointment(consultationDto, principal);
+        redirectAttributes.addFlashAttribute("isSend", isSend)
+                .addFlashAttribute("consultationDto", consultationDto);
+
         return "redirect:/appointment";
     }
 
@@ -81,4 +78,7 @@ public class ConsultationController {
     public ConsultationDto consultationDto(){
         return new ConsultationDto();
     }
+
+
+
 }
