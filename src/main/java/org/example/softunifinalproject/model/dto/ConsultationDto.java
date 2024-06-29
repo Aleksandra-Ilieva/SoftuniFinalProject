@@ -1,9 +1,12 @@
 package org.example.softunifinalproject.model.dto;
 
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import org.example.softunifinalproject.validation.annotation.DateInWorkingDays;
+import org.example.softunifinalproject.validation.annotation.TimeInWorkingHours;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -11,7 +14,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class ConsultationDto {
-    //TODO направи  custom анотации за допълнителна валидация
+
 
     private long id;
 
@@ -21,8 +24,10 @@ public class ConsultationDto {
 
     @FutureOrPresent
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateInWorkingDays
     private LocalDate date;
     @DateTimeFormat(pattern = "hh:mm a")
+    @TimeInWorkingHours()
     private LocalTime time;
 
 

@@ -3,6 +3,7 @@ package org.example.softunifinalproject.service;
 import org.example.softunifinalproject.model.dto.doctorPageDto.AllNewConsultationsDto;
 import org.example.softunifinalproject.model.dto.doctorPageDto.ApprovedConsultationsDto;
 import org.example.softunifinalproject.model.dto.ConsultationDto;
+import org.example.softunifinalproject.model.dto.profileDto.BusySlotsDto;
 
 import java.security.Principal;
 
@@ -18,4 +19,8 @@ public interface ConsultationService {
     ApprovedConsultationsDto getAllApprovedConsultations();
 
     void setAsConsulted(long id);
+
+    BusySlotsDto findBusySlots();
+
+    boolean checkIfAlreadyBooked(ConsultationDto consultationDto);
 }

@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import org.example.softunifinalproject.model.dto.doctorPageDto.AllNewConsultationsDto;
 import org.example.softunifinalproject.model.dto.doctorPageDto.ApprovedConsultationsDto;
 import org.example.softunifinalproject.model.dto.ConsultationDto;
+import org.example.softunifinalproject.model.dto.profileDto.BusySlotsDto;
 import org.example.softunifinalproject.service.ConsultationService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -53,7 +54,9 @@ public class ConsultationController {
     }
 
     @GetMapping("/appointment")
-    public String appointment() {
+    public String appointment(Model model) {
+        BusySlotsDto busySlots= this.consultationService.findBusySlots();
+        model.addAttribute("busySlots", busySlots);
         return "appointment";
     }
 
@@ -66,9 +69,17 @@ public class ConsultationController {
 
             return "redirect:/appointment";
         }
-        boolean isSend = this.consultationService.saveAppointment(consultationDto, principal);
-        redirectAttributes.addFlashAttribute("isSend", isSend)
-                .addFlashAttribute("consultationDto", consultationDto);
+        boolean isAlreadyBooked=this.consultationService.checkIfAlreadyBooked(consultationDto);
+
+
+            redirectAttributes.addFlashAttribute("isAlreadyBooked", isAlreadyBooked);
+            if(!isAlreadyBooked){
+                boolean isSend = this.consultationService.saveAppointment(consultationDto, principal);
+                redirectAttributes.addFlashAttribute("isSend", isSend)
+                        .addFlashAttribute("consultationDto", consultationDto);
+            }
+
+
 
         return "redirect:/appointment";
     }

@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" th:href="@{css/reset.css}">
-
     <link rel="stylesheet" th:href="@{css/register.css}">
-
     <link rel="stylesheet" th:href="@{css/appointment.css}">
     <link rel="stylesheet" th:href="@{css/header.css}">
 
@@ -17,25 +15,42 @@
 <body>
 <header th:replace="fragments/header :: header"></header>
 <main>
+
     <section class="hero">
+
     </section>
 
     <div class="login-page">
         <div class="form">
             <form th:object="${consultationDto}" th:method="POST" th:action="@{/appointment}" class="register-form"
                   method="POST">
+                <div class="wrapper-available-hours">
+                    <h1 class="free-hours">Busy hours for 5 days ahead</h1>
+                    <small class="text-danger">А reserved time lasts 30 minutes!</small>
+                    <table>
+                        <tr>
+                            <th>Date</th>
+                            <th >Time</th>
+                        </tr>
+                        <tr th:each="c:${busySlots.getBusySlots()}">
+                            <td th:text="${c.toLocalDate()}" ></td>
+                            <td th:text="${c.toLocalTime()}" ></td>
+                        </tr>
+                    </table>
+                </div>
+
                 <h2>Book Consultation</h2>
                 <small class="sent" th:if="${isSend == true}">Request sent successfully!</small>
                 <small class="text-danger" th:if="${isSend == false}">
-                    You can only reserve up to 2 consultations!</small>
-                <!--                <input  th:field="*{email}" type="email" placeholder="Email *" required/>-->
-                <!--                <small th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></small>-->
-                <!--                <input th:field="*{username}" type="text" placeholder="Username *" required/>-->
-                <!--                <small th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="text-danger"></small>-->
-                <input th:field="*{date}" type="date" placeholder="Appointment Date *" required/>
-                <small th:if="${#fields.hasErrors('date')}" th:errors="*{date}" class="text-danger"></small>
+                    You can only reserve up to 3 consultations!</small>
+                <small class="text-danger" th:if="${isAlreadyBooked == true}">This slot is already booked.</small>
+                <div th:each="error: ${#fields.errors()}"  th:text="${error}" class="text-danger">Error messages</div>
+                <input th:field="*{date}" type="date" placeholder="Appointment Date *" required
+                       oninput="checkWeekend(this)" />
+                <small class="text-danger"></small>
                 <input th:field="*{time}" type="time" placeholder="Appointment Time *" required/>
-                <small th:if="${#fields.hasErrors('time')}" th:errors="*{date}" class="text-danger"></small>
+                <small  class="text-danger"></small>
+
                 <button type="submit" class="btn" href="#">
                     <span></span>
                     <span></span>
@@ -52,4 +67,18 @@
 <footer th:replace="fragments/footer :: footer"></footer>
 
 </body>
+
+<script>
+    function checkWeekend(input) {
+        const selectedDate = new Date(input.value);
+        const dayOfWeek = selectedDate.getDay(); // 0 (Sunday) to 6 (Saturday)
+
+        // Проверка за събота (6) и неделя (0)
+        if (dayOfWeek === 0 || dayOfWeek === 6) {
+            input.setCustomValidity('Please choose a date that is not a weekend.');
+        } else {
+            input.setCustomValidity('');
+        }
+    }
+</script>
 </html>

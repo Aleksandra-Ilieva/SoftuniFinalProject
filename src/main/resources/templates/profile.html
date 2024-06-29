@@ -14,6 +14,10 @@
 <header th:replace="fragments/header :: header"></header>
 <main>
     <section class="hero">
+
+
+
+
         <section class="profile">
             <h1 th:text="${userConsultationDto.getUsername()}">Aleksandra</h1>
             <h2 th:if="${userConsultationDto.userConsultations.size() > 0}">Upcoming consultations</h2>

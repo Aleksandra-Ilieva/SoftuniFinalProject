@@ -3,6 +3,7 @@ package org.example.softunifinalproject.service.impl;
 import org.example.softunifinalproject.model.dto.doctorPageDto.AllNewConsultationsDto;
 import org.example.softunifinalproject.model.dto.doctorPageDto.ApprovedConsultationsDto;
 import org.example.softunifinalproject.model.dto.ConsultationDto;
+import org.example.softunifinalproject.model.dto.profileDto.BusySlotsDto;
 import org.example.softunifinalproject.model.entity.Consultation;
 import org.example.softunifinalproject.model.entity.User;
 import org.example.softunifinalproject.repository.ConsultationRepository;
@@ -12,6 +13,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.security.Principal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,12 +34,7 @@ public class ConsultationServiceImpl implements ConsultationService {
 
     @Override
     public boolean saveAppointment(ConsultationDto consultationDto, Principal principal) {
-
         Optional<User> user = this.userRepository.findUserByEmail(principal.getName());
-//        User user = this.userRepository.findUserByEmailAndUsername(consultationDto.getEmail(), consultationDto.getUsername());
-//        if (user == null) {
-//            return false;
-//        }
         int currentCountOfAppointments = 0;
         for (Consultation consultation : user.get().getConsultations()) {
             if (consultation.getConsulted() == null) {
@@ -58,6 +55,8 @@ public class ConsultationServiceImpl implements ConsultationService {
 
 
     }
+
+
 
     @Override
     public AllNewConsultationsDto getAllConsultations() {
@@ -124,4 +123,40 @@ public class ConsultationServiceImpl implements ConsultationService {
         this.consultationRepository.save(consultation.get());
 
     }
+
+    @Override
+    public BusySlotsDto findBusySlots() {
+        List<LocalDateTime> busy = new ArrayList<>();
+
+     List<Consultation> consultations =   this.consultationRepository.findAll();
+        for (Consultation consultation : consultations) {
+            LocalDateTime localDateTime = consultation.getDateTime();
+            if(LocalDate.now().plusDays(5).equals(consultation.getDateTime().toLocalDate())){
+                break;
+            }
+            if(consultation.getAccepted() !=null && consultation.getConsulted()==null){
+                busy.add(localDateTime);
+            }
+
+        }
+
+
+        BusySlotsDto busySlotsDto = new BusySlotsDto();
+        busySlotsDto.setBusySlots(busy);
+        return  busySlotsDto;
+    }
+
+    @Override
+    public boolean checkIfAlreadyBooked(ConsultationDto consultationDto) {
+        List<Consultation> consultations = this.consultationRepository.findAll();
+        LocalDateTime appointmentLocalDateTime = consultationDto.getDate().atTime(consultationDto.getTime());
+        for (Consultation consultation : consultations) {  LocalDateTime endInterval = consultation.getDateTime().plusMinutes(30);
+            if (appointmentLocalDateTime.isEqual(consultation.getDateTime()) || // ако appointmentLocalDateTime е точно равен на consultationDateTime
+                    (appointmentLocalDateTime.isAfter(consultation.getDateTime()) && appointmentLocalDateTime.isBefore(endInterval))) { // или ако appointmentLocalDateTime е в интервала между consultationDateTime и endInterval
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

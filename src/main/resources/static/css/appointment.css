@@ -12,3 +12,65 @@ color: white;
 .text-danger{
     color: red;
 }
+
+.free-hours{
+    color: white;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+
+}
+
+table a{
+    text-decoration: none;
+    color: #ffffff;
+    padding-top: 6px;
+    padding-left: 8px;
+    border-radius: 14px;
+    padding-right: 10px;
+    padding-bottom: 8px;
+    background-color:  red;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    cursor:  pointer;
+    font-size: 12px;
+
+}
+
+table a:hover{
+    background-color: white; /* Променя цвета на текста на бяло */
+    border: 2px solid red;; /* Добавя синьо подчертаване */
+    color: black;
+
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+
+}
+th{
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+
+}
+tr:nth-child(odd) {
+    color: white;
+
+}
+
+.wrapper-available-hours{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}

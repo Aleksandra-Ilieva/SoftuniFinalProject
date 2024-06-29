@@ -36,7 +36,9 @@ public class AppConfig {
                                 .loginPage("/login")
                                 .passwordParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_PASSWORD_KEY)
                                 .usernameParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_USERNAME_KEY)
-                                .defaultSuccessUrl("/").failureUrl("/login?error=true").permitAll()
+                                .defaultSuccessUrl("/")  .failureHandler((request, response, exception) -> {
+                                    response.sendRedirect("/login?error=" + exception.getMessage());
+                                })
 
 
 
