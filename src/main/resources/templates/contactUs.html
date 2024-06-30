@@ -25,15 +25,18 @@
             <img src="/images/contact.webp">
 
         </div>
-        <form  class="contact-form">
+        <form th:object="${feedbackDto}" th:method="POST" th:action="@{/contact}"  class="contact-form">
+            <div th:each="error: ${#fields.errors()}"  th:text="${error}" class="text-danger">Error messages</div>
+            <small class="sent" th:if="${isSaved == true}"> Message sent successfully</small>
+
             <h1 class="title text-center mb-4">Talk to Us</h1>
+
 
             <!-- Name -->
             <div class="form-group position-relative">
                 <label for="formName" class="d-block">
-
                 </label>
-                <input type="text" id="formName" class="form-control form-control-lg thick" placeholder="Name">
+                <input th:field="*{fullName}" name="fullName" type="text" id="formName" class="form-control form-control-lg thick" placeholder="Full Name">
             </div>
 
             <!-- E-mail -->
@@ -41,12 +44,12 @@
                 <label for="formEmail" class="d-block">
 
                 </label>
-                <input   th:value="${userEmail}"  type="email" id="formEmail" class="form-control form-control-lg thick" placeholder="E-mail">
+                <input name="email" th:value="${userEmail}"  type="email" id="formEmail" class="form-control form-control-lg thick" placeholder="E-mail">
             </div>
 
             <!-- Message -->
             <div class="form-group message">
-                <textarea id="formMessage" class="form-control form-control-lg" rows="7" placeholder="Message"></textarea>
+                <textarea  th:field="*{message}" name="message" id="formMessage" class="form-control form-control-lg" rows="7" placeholder="Message"></textarea>
             </div>
 
             <!-- Submit btn -->

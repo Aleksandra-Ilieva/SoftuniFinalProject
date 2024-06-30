@@ -7,10 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class EmailSenderServiceImpl implements EmailSenderService {
-
-
     private  final JavaMailSender emailSender;
-
     public EmailSenderServiceImpl(JavaMailSender emailSender) {
         this.emailSender = emailSender;
     }
@@ -21,6 +18,8 @@ public class EmailSenderServiceImpl implements EmailSenderService {
         message.setTo(to);
         message.setSubject(subject);
         message.setText(text);
-        emailSender.send(message);
+
     }
+
+
 }

@@ -135,3 +135,14 @@
     background-size: 100% 100%;
     transform: translateY(-0.15em);
 }
+
+.text-danger{
+    color: red;
+}
+
+.sent{
+    background-color: white;
+    color: green;
+    padding: 10px;
+    border-radius: 6px;
+}
