@@ -14,7 +14,7 @@ public class TimeInWorkingHoursValidator implements ConstraintValidator<TimeInWo
 
     @Override
     public boolean isValid(LocalTime time, ConstraintValidatorContext constraintValidatorContext) {
-        if(time.isAfter(LocalTime.of(9,0)) && time.isBefore(LocalTime.of(18,0))) {
+        if((time.isAfter(LocalTime.of(9,0)) || time.equals(LocalTime.of(9,0))) && time.isBefore(LocalTime.of(18,0)) ) {
             return true;
         }
 
