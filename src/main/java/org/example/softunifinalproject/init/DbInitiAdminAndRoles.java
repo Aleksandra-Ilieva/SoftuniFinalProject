@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class DbInitialInit implements CommandLineRunner {
+public class DbInitiAdminAndRoles implements CommandLineRunner {
 
 
     private final RoleRepository roleRepository;
@@ -20,7 +20,7 @@ public class DbInitialInit implements CommandLineRunner {
     private final PasswordEncoder passwordEncoder;
 
 
-    public DbInitialInit(RoleRepository roleRepository, UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public DbInitiAdminAndRoles(RoleRepository roleRepository, UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.roleRepository = roleRepository;
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
