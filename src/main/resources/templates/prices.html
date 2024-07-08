@@ -15,39 +15,40 @@
     <section class="services">
         <h1>Our Prices</h1>
     </section>
-    <section class="prices">
-        <div class="consult">
-            <p>Consultation with Dr.Petrov</p>
-            <p>150 $</p>
-        </div>
-        <div class="procedures">
-            <h1>Procedures</h1>
-            <div class="consult">
-                <p>Breast Augmentation</p>
-                <p>5 500 $</p>
-            </div>
-            <div class="consult">
-                <p>Lipofilling</p>
-                <p>3 200 $</p>
-            </div>
-            <div class="consult">
-                <p>Face Lifting</p>
-                <p>6 300 $</p>
-            </div>
-            <div class="consult">
-                <p>Rhinoplasty</p>
-                <p>3 000 $</p>
-            </div>
-            <div class="consult">
-                <p>Liposuction</p>
-                <p>4 200 $</p>
-            </div>
-        </div>
 
-    </section>
+
+        <section th:object="${prices}"  class="prices">
+
+            <div  class="consult">
+                <p th:text="${prices.get(0).procedureType} +' with Dr.Petrov'">Consultation with Dr.Petrov</p>
+                <div class="wrapper-prices">
+                    <p class="price-usd" th:text="${prices.get(0).price} + ' $'">150 $</p>
+                    <p class="price-eur"></p>
+                </div>
+
+            </div>
+            <div class="procedures">
+                <h1>Procedures</h1>
+                <div class="consult" th:each="price, iterStat : ${prices}" th:if="${iterStat.index > 0}">
+                    <p th:text="${price.procedureType}">Breast Augmentation</p>
+                    <div class="wrapper-prices">
+                        <p class="price-usd" th:text="${price.price} + ' $'">5 500 $</p>
+                        <p class="price-eur"></p>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </section>
+
+
 </main>
 
 
 <footer th:replace="fragments/footer :: footer"></footer>
 </body>
+<script src="/js/PriceInEuro.js">
+
+</script>
 </html>

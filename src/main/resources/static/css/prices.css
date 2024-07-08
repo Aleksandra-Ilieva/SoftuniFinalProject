@@ -19,10 +19,18 @@ justify-content: space-between;
 .procedures{
     margin-bottom: 20px;
 }
+
 .procedures h1{
     font-size: 3rem;
     color: #0174cf;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+.wrapper-prices{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 30px;
 }

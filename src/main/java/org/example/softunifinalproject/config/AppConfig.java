@@ -27,7 +27,7 @@ public class AppConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()// defines which pages will be authorized
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                .requestMatchers("/", "/login", "/register", "/services","/about","/prices","/contact").permitAll()
+                .requestMatchers("/", "/login", "/register", "/services","/about","/prices","/contact","/rates").permitAll()
                 .requestMatchers("/admin").hasRole(RoleType.ADMIN.name())
                 .requestMatchers("/doctor-page").hasAnyRole(RoleType.DOCTOR.name(),RoleType.ADMIN.name())
                 .anyRequest().authenticated()
