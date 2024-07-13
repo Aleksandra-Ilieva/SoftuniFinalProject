@@ -188,4 +188,20 @@ h2{
     }
 }
 
+.wrap_{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.wrap_ a{
+    color: #289bb8;
+    text-decoration: none;
+}
+
+.create_account{
+    color: #289bb8;
+    text-decoration: none;
+}
 

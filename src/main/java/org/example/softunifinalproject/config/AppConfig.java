@@ -16,50 +16,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 public class AppConfig {
-    private final UserRepository userRepository;
-
-    public AppConfig(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
-
-
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeRequests()// defines which pages will be authorized
-                .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                .requestMatchers("/", "/login", "/register", "/services","/about","/prices","/contact","/rates").permitAll()
-                .requestMatchers("/admin").hasRole(RoleType.ADMIN.name())
-                .requestMatchers("/doctor-page").hasAnyRole(RoleType.DOCTOR.name(),RoleType.ADMIN.name())
-                .anyRequest().authenticated()
-                .and().formLogin(formLogin ->
-                        formLogin
-                                .loginPage("/login")
-                                .passwordParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_PASSWORD_KEY)
-                                .usernameParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_USERNAME_KEY)
-                                .defaultSuccessUrl("/")  .failureHandler((request, response, exception) -> {
-                                    response.sendRedirect("/login?error=" + exception.getMessage());
-                                })
-
-
-
-                ).logout((logout)-> logout.logoutUrl("/logout").logoutSuccessUrl("/").invalidateHttpSession(true).permitAll());
-
-        return http.build();
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-    @Bean
-    public UserDetailsService userDetailsService(){
-        return new ApplicationUserDetailsService(userRepository);
-    }
-
-
-    @Bean
-    public ModelMapper modelMapper(){
+    public ModelMapper modelMapper() {
         return new ModelMapper();
     }
 }

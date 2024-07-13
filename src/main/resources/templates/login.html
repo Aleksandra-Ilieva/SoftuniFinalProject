@@ -20,17 +20,21 @@
                 </div>
             <form class="login-form"     th:method="POST"
                   th:action="@{/login}">
-                <h2></i> Login</h2>
-                <input name="username" type="text" placeholder="Email" required />
-                <input name="password" type="password" placeholder="Password" required/>
-                <button class="btn" type="submit">
+                <h2 th:text="#{login.form.title}"></h2>
+                <input name="username" type="text" th:placeholder="#{login.form.username}" required />
+                <input name="password" type="password" th:placeholder="#{login.form.password}" required/>
+                <button th:utext="#{login.form.button.signIn}" class="btn" type="submit">
                     <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
                     Sign in
                 </button>
-                <p class="message">Not registered? <a th:href="@{/register}">Create an account</a></p>
+                <div class="_wrap">
+                    <p th:text="#{login.form.message.notRegistered}" class="message">Not registered? </p>
+                    <a class="create_account" th:text="#{login.form.message.createAccount}" th:href="@{/register}">Create an account</a>
+                </div>
+
             </form>
         </div>
         </div>

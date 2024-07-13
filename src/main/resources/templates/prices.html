@@ -13,14 +13,14 @@
 <header th:replace="fragments/header :: header"></header>
 <main>
     <section class="services">
-        <h1>Our Prices</h1>
+        <h1 th:text="#{prices.title}" ></h1>
     </section>
 
 
         <section th:object="${prices}"  class="prices">
 
             <div  class="consult">
-                <p th:text="${prices.get(0).procedureType} +' with Dr.Petrov'">Consultation with Dr.Petrov</p>
+                <p   th:text="${prices.get(0).procedureType} +' with Dr.Petrov'"></p>
                 <div class="wrapper-prices">
                     <p class="price-usd" th:text="${prices.get(0).price} + ' $'">150 $</p>
                     <p class="price-eur"></p>
@@ -28,7 +28,7 @@
 
             </div>
             <div class="procedures">
-                <h1>Procedures</h1>
+                <h1 th:text="#{prices.procedure}"  ></h1>
                 <div class="consult" th:each="price, iterStat : ${prices}" th:if="${iterStat.index > 0}">
                     <p th:text="${price.procedureType}">Breast Augmentation</p>
                     <div class="wrapper-prices">

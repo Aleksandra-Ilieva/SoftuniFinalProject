@@ -12,7 +12,7 @@
 <header th:replace="fragments/header :: header"></header>
 <main>
     <section class="hero">
-        <h1>Welcome to <span>Aesthetic Clinic</span> - Where Beauty Meets Confidence</h1>
+        <h1  th:utext="#{welcome.message}" ></h1>
     </section>
     <section class="hero-info">
 
@@ -21,20 +21,15 @@
 
         </div>
         <div class="wrapper-hero info">
-            <p>At <span>Aesthetic Clinic</span>, we believe that every individual deserves to feel confident in their
-                own skin. Our
-                clinic is not just a place for cosmetic enhancements; it's a sanctuary where we blend artistry with
-                science to enhance your natural beauty.</p>
+            <p th:utext="#{heroinfo.text}" ></p>
         </div>
     </section>
 
     <section class="our-mission">
         <div class="card">
             <div class="text_wrap">
-                <h1>Our Mission</h1>
-                <p>Our mission is simple: to empower you to look and feel your best. We understand that beauty is deeply
-                    personal and unique to each individual. That's why we offer personalized treatment plans tailored to
-                    your specific needs and goals.</p>
+                <h1 th:text="#{mission.title}"></h1>
+                <p th:text="#{mission.text}" ></p>
             </div>
             <div class="img_wrap">
                 <img src="/images/mission.jpg" alt="Our Mission Image">
@@ -42,10 +37,8 @@
         </div>
         <div class="card">
             <div class="text_wrap">
-                <h1>Expertise and Innovation</h1>
-                <p>Led by a team of experienced and highly-trained professionals, [Clinic Name] stays at the forefront of
-                    aesthetic medicine. We combine expertise with the latest advancements in technology to deliver safe,
-                    effective, and cutting-edge treatments.</p>
+                <h1 th:text="#{expertise.title}" >Expertise and Innovation</h1>
+                <p th:text="#{expertise.text}" ></p>
             </div>
             <div class="img_wrap">
                 <img src="/images/doctors.jpg" alt="Expertise and Innovation Image">
@@ -53,10 +46,8 @@
         </div>
         <div class="card">
             <div class="text_wrap">
-                <h1>Comprehensive Services</h1>
-                <p>Whether you're seeking subtle enhancements or dramatic transformations, we offer a wide range of services
-                    to address your concerns. From injectables and laser treatments to skincare and body contouring, our
-                    comprehensive services are designed to rejuvenate your appearance from head to toe.</p>
+                <h1 th:text="#{services.about.title}" ></h1>
+                <p th:text="#{services.text}" ></p>
             </div>
             <div class="img_wrap">
                 <img src="/images/machines.jpg" alt="Comprehensive Services Image">

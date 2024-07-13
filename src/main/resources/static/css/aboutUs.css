@@ -21,6 +21,10 @@
     color: white;
 }
 
+.hero h1 span{
+    color: #0174cf;
+}
+
 main {
     display: flex;
     align-items: center;

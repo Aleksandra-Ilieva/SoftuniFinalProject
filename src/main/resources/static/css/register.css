@@ -196,3 +196,14 @@ h2 {
         bottom: 100%;
     }
 }
+.wrap_ a{
+    color: #289bb8;
+    text-decoration: none;
+}
+.wrap_{
+    display: flex;
+   align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 10px;
+}

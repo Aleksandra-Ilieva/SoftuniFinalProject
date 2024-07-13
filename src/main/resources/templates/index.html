@@ -18,11 +18,10 @@
 
     <section class="hero">
         <div class="hero-info">
-            <h1>
-                Take the world's best quality Treadment
+            <h1 th:text="#{hero.heading}">
             </h1>
             <div>
-                <a th:href="@{/contact}">Contact us</a>
+                <a th:text="#{hero.contact}" th:href="@{/contact}">Contact us</a>
             </div>
 
         </div>
@@ -30,11 +29,9 @@
     </section>
     <section class="welcome">
         <div class="info">
-            <h3>Welcome to Aesthetic</h3>
-            <h1>Find Best Doctors With <span>AESTHETIC</span></h1>
-            <p>Discover our aesthetic doctors: skilled artisans blending medical expertise with artistic finesse. They
-                craft beauty and confidence, sculpting transformations that redefine self-image. With precision and
-                passion, they deliver results that inspire and empower.</p>
+            <h3 th:text="#{welcome.heading}" ></h3>
+            <h1 th:text="#{welcome.subheading}" ></h1>
+            <p th:text="#{welcome.paragraph}" ></p>
         </div>
         <div class="img-doctor">
             <img src="/images/doctor.jpg">
@@ -44,39 +41,31 @@
 
     <section class="offer">
         <div class="offer-info">
-            <h2>Why choose us?</h2>
-            <h1>Offer for you</h1>
+            <h2 th:text="#{offer.heading}"></h2>
+            <h1 th:text="#{offer.title}"></h1>
         </div>
 
         <div class="offer-cards">
             <div>
                 <i class="fas fa-syringe"></i>
-                <h2>Advanced equipment</h2>
-                <p>In our aesthetic clinic, the quality of equipment plays a vital role in ensuring top-notch patient
-                    care and satisfaction. From state-of-the-art laser machines to advanced skincare devices, having the
-                    right equipment is paramount for delivering safe and effective treatments.</p>
+                <h2 th:text="#{offer.advancedEquipment}"></h2>
+                <p th:text="#{offer.advancedEquipment.description}" ></p>
 
             </div>
             <div>
                 <i class="fas fa-briefcase-medical"></i>
-                <h2>Qualified doctors</h2>
-                <p>Our doctors are highly trained in aesthetic medicine, with expertise in dermatology, plastic surgery,
-                    and related fields. They continually update their skills to offer patients the latest treatments and
-                    ensure top-quality care.</p>
+                <h2 th:text="#{offer.qualifiedDoctors}" ></h2>
+                <p th:text="#{offer.qualifiedDoctors.description}"></p>
             </div>
             <div>
                 <i class="fas fa-file-medical-alt"></i>
-                <h2>Certified services</h2>
-                <p>At our clinic, we take pride in offering certified services that uphold the highest standards of
-                    excellence in aesthetic care. Each service we provide is backed by a commitment to quality and
-                    safety, ensuring that our patients receive the utmost in professional care and attention.</p>
+                <h2 th:text="#{offer.certifiedServices}" ></h2>
+                <p th:text="#{offer.certifiedServices.description}" ></p>
             </div>
             <div>
                 <i class="fas fa-heartbeat"></i>
-                <h2>Emergency care</h2>
-                <p>Our clinic provides emergency care services, ensuring prompt and effective treatment for urgent
-                    medical needs. Our dedicated team is trained to handle emergencies with expertise and compassion,
-                    prioritizing patient safety and well-being above all else.</p>
+                <h2 th:text="#{offer.emergencyCare}" ></h2>
+                <p th:text="#{offer.emergencyCare.description}" ></p>
 
             </div>
 

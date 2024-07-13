@@ -16,25 +16,30 @@
     <div class="login-page">
         <div th:object="${registerDto}" class="form">
             <form class="register-form" th:action="@{/register}" th:method="POST">
-                <h2>Register</h2>
-                <input th:field="*{fullName}" name="fullName" type="text" placeholder="Full Name *" required/>
+                <h2 th:text="#{register.form.title}" >Register</h2>
+                <input th:field="*{fullName}" name="fullName" type="text"  th:placeholder="#{register.form.fullName}" required/>
                 <small th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}" class="text-danger"></small>
-                <input th:field="*{username}"  name="username" type="text" placeholder="Username *" required/>
+                <input th:field="*{username}"  name="username" type="text" th:placeholder="#{register.form.username}" required/>
                 <small th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="text-danger"></small>
-                <input th:field="*{email}"  name="email" type="email" placeholder="Email *" required/>
+                <input th:field="*{email}"  name="email" type="email" th:placeholder="#{register.form.email}"  required/>
                 <small th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></small>
-                <input th:field="*{password}"  name="password" type="password" placeholder="Password *" required/>
+                <input th:field="*{password}"  name="password" type="password"  th:placeholder="#{register.form.password}" required/>
                 <small th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-danger"></small>
-                <input th:field="*{confirmPassword}"  name="confirmPassword" type="password" placeholder="Confirm Password *" required/>
+                <input th:field="*{confirmPassword}"  name="confirmPassword" type="password" th:placeholder="#{register.form.confirmPassword}"required/>
                 <small th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}" class="text-danger"></small>
-                <button type="submit" class="btn" href="#">
+                <button th:utext="#{register.form.button.create}" type="submit" class="btn" href="#">
                     <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
-                    Create
+                   Register
                 </button>
-                <p class="message">Already registered? <a th:href="@{/login}">Sign In</a></p>
+                <div class="wrap_">
+                    <p th:utext="#{register.form.message.alreadyRegistered}" class="message">Already registered?
+                    </p>
+                    <a th:text="#{register.form.message.signIn}" th:href="@{/login}">Sign In</a>
+                </div>
+
             </form>
         </div>
     </div>

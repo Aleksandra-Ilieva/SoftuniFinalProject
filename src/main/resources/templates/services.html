@@ -15,64 +15,44 @@
 <header th:replace="fragments/header :: header"></header>
 <main>
     <section class="services">
-        <h1>Our Services</h1>
+        <h1 th:text="#{services.title}" ></h1>
     </section>
     <div class="check-procedure">
 
 
             <div class="card breast">
-                <h1>Breast Augmentation</h1>
-                <p>Breast augmentation, also known as augmentation mammoplasty, is a surgical procedure designed to
-                    enhance the size and shape of the breasts. This procedure involves the placement of implants beneath
-                    the breast tissue or chest muscles to achieve the desired volume and contour.</p>
-                <div class="more-info-btn"><a>Learn more</a></div>
+                <h1 th:text="#{services.breast.title}" ></h1>
+                <p th:text="#{services.breast.description}" ></p>
+                <div th:text="#{services.breast.learnMore}" class="more-info-btn"><a></a></div>
             </div>
 
 
 
             <div class="card lips">
-                <h1>Lipofilling</h1>
-                <p>Lipofilling for lips, also known as lip augmentation with fat transfer, is a cosmetic procedure aimed
-                    at
-                    enhancing the size, shape, and contour of the lips using the patient's own fat. This procedure
-                    offers a
-                    natural alternative to synthetic fillers and provides long-lasting results.</p>
-                <div class="more-info-btn"><a>Learn more</a></div>
+                <h1 th:text="#{services.lipofilling.title}" ></h1>
+                <p th:text="#{services.lipofilling.description}" ></p>
+                <div th:text="#{services.lipofilling.learnMore}" class="more-info-btn"><a>Learn more</a></div>
             </div>
 
 
             <div class="card face">
-                <h1>Face Lifting</h1>
-                <p>A facelift, medically known as rhytidectomy, is a surgical procedure designed to rejuvenate the face
-                    by
-                    addressing sagging skin, deep wrinkles, and other signs of aging. This comprehensive procedure
-                    involves
-                    lifting and tightening the underlying facial muscles and tissues to create a smoother, more youthful
-                    appearance.</p>
-                <div class="more-info-btn"><a>Learn more</a></div>
+                <h1 th:text="#{services.faceLifting.title}" >Face Lifting</h1>
+                <p th:text="#{services.faceLifting.description}" ></p>
+                <div th:text="#{services.faceLifting.learnMore}" class="more-info-btn"><a>Learn more</a></div>
             </div>
 
 
             <div class="card rhinoplasty">
-                <h1>Rhinoplasty</h1>
-                <p>Rhinoplasty, commonly referred to as a nose job, is a surgical procedure aimed at altering the size,
-                    shape, or proportions of the nose to achieve a more balanced and aesthetically pleasing appearance.
-                    This
-                    procedure can address various concerns, including nasal humps, asymmetry, wide nostrils, or nasal
-                    tip
-                    irregularities.</p>
-                <div class="more-info-btn"><a>Learn more</a></div>
+                <h1 th:text="#{services.rhinoplasty.title}" >Rhinoplasty</h1>
+                <p th:text="#{services.rhinoplasty.description}" ></p>
+                <div th:text="#{services.rhinoplasty.learnMore}" class="more-info-btn"><a>Learn more</a></div>
             </div>
 
 
             <div class="card liposuction">
-                <h1>Liposuction</h1>
-                <p>Liposuction is a surgical procedure designed to remove stubborn fat deposits from specific areas of
-                    the
-                    body, such as the abdomen, thighs, hips, buttocks, arms, or chin. This procedure can help contour
-                    and
-                    sculpt the body by targeting localized pockets of fat that are resistant to diet and exercise.</p>
-                <div class="more-info-btn"><a>Learn more</a></div>
+                <h1 th:text="#{services.liposuction.title}" >Liposuction</h1>
+                <p th:text="#{services.liposuction.description}"  ></p>
+                <div th:text="#{services.liposuction.learnMore}" class="more-info-btn"><a>Learn more</a></div>
             </div>
 
 

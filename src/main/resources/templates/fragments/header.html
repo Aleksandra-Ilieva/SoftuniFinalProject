@@ -10,7 +10,7 @@
 <header>
     <div class="logo">
         <img src="/images/logo.png">
-        <h1>Aesthetic Clinic</h1>
+        <h1  th:text="#{header.title}"></h1>
         <form class="logout-form" sec:authorize="isAuthenticated()" th:method="Post"
               th:action="@{/logout}">
 
@@ -19,17 +19,17 @@
     </div>
     <nav>
         <ul>
-            <li><a th:href="@{/}">Home</a></li>
-            <li><a th:href="@{/services}">Services</a></li>
-            <li><a th:href="@{/prices}">Prices</a></li>
-            <li><a th:href="@{/about}">About us</a></li>
-            <li sec:authorize="!isAuthenticated()" class="register"><a th:href="@{/register}">Register</a></li>
-            <li sec:authorize="!isAuthenticated()"  class="login"><a th:href="@{/login}">Login</a></li>
+            <li><a th:text="#{nav.home}" th:href="@{/}"></a></li>
+            <li><a th:text="#{nav.services}" th:href="@{/services}">Services</a></li>
+            <li><a th:text="#{nav.prices}" th:href="@{/prices}">Prices</a></li>
+            <li><a th:text="#{nav.about}" th:href="@{/about}">About us</a></li>
+            <li sec:authorize="!isAuthenticated()" class="register"><a th:text="#{nav.register}"  th:href="@{/register}">Register</a></li>
+            <li sec:authorize="!isAuthenticated()"  class="login"><a th:text="#{nav.login}" th:href="@{/login}">Login</a></li>
 
-            <li sec:authorize="!hasRole('DOCTOR') and hasRole('USER')" ><a sec:authorize="isAuthenticated()" th:href="@{/appointment}">Book Consultation</a></li>
-            <li  sec:authorize="!hasRole('DOCTOR') and hasRole('USER')" ><a sec:authorize="isAuthenticated()" th:href="@{/profile}">My profile</a></li>
-            <li sec:authorize="!hasRole('ADMIN') and hasRole('USER')"  ><a sec:authorize="hasAnyRole('DOCTOR')" th:href="@{/doctor-page}">My schedule</a></li>
-            <li  ><a sec:authorize="hasRole('ADMIN')" th:href="@{/admin}">Admin panel</a></li>
+            <li sec:authorize="!hasRole('DOCTOR') and hasRole('USER')" ><a th:text="#{nav.bookConsultation}"  sec:authorize="isAuthenticated()" th:href="@{/appointment}">Book Consultation</a></li>
+            <li  sec:authorize="!hasRole('DOCTOR') and hasRole('USER')" ><a th:text="#{nav.myProfile}" sec:authorize="isAuthenticated()" th:href="@{/profile}">My profile</a></li>
+            <li sec:authorize="!hasRole('ADMIN') and hasRole('USER')"  ><a th:text="#{nav.mySchedule}" sec:authorize="hasAnyRole('DOCTOR')" th:href="@{/doctor-page}">My schedule</a></li>
+            <li  ><a th:text="#{nav.adminPanel}" sec:authorize="hasRole('ADMIN')" th:href="@{/admin}">Admin panel</a></li>
 
 
         </ul>
