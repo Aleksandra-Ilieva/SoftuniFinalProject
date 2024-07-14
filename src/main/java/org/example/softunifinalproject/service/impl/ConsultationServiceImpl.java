@@ -145,7 +145,7 @@ public class ConsultationServiceImpl implements ConsultationService {
             if(LocalDate.now().plusDays(5).equals(consultation.getDateTime().toLocalDate())){
                 break;
             }
-            if(consultation.getAccepted() !=null && consultation.getConsulted()==null){
+            if(consultation.getAccepted() !=null && consultation.getConsulted()==null && consultation.getDateTime().isAfter(LocalDateTime.now())){
                 busy.add(localDateTime);
             }
 

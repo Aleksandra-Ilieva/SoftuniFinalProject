@@ -25,12 +25,12 @@
             <form th:object="${consultationDto}" th:method="POST" th:action="@{/appointment}" class="register-form"
                   method="POST">
                 <div class="wrapper-available-hours">
-                    <h1 class="free-hours">Busy hours for 5 days ahead</h1>
-                    <small class="text-danger">А reserved time lasts 30 minutes!</small>
+                    <h1 th:text="#{busy.hours.title}" class="free-hours"></h1>
+                    <small th:text="#{busy.hours.note}" class="text-danger"></small>
                     <table>
                         <tr>
-                            <th>Date</th>
-                            <th >Time</th>
+                            <th th:text="#{consultation.table.date}"></th>
+                            <th th:text="#{consultation.table.time}" ></th>
                         </tr>
                         <tr th:each="c:${busySlots.getBusySlots()}">
                             <td th:text="${c.toLocalDate()}" ></td>
@@ -39,11 +39,11 @@
                     </table>
                 </div>
 
-                <h2>Book Consultation</h2>
-                <small class="sent" th:if="${isSend == true}">Request sent successfully!</small>
-                <small class="text-danger" th:if="${isSend == false}">
-                    You can only reserve up to 3 consultations!</small>
-                <small class="text-danger" th:if="${isAlreadyBooked == true}">This slot is already booked.</small>
+                <h2 th:text="#{consultation.book.title}" ></h2>
+                <small class="sent" th:text="#{consultation.sent.message}" th:if="${isSend == true}"></small>
+                <small th:text="#{consultation.max.message}" class="text-danger" th:if="${isSend == false}">
+                </small>
+                <small th:text="#{consultation.already.booked.message}"  class="text-danger" th:if="${isAlreadyBooked == true}"></small>
                 <div th:each="error: ${#fields.errors()}"  th:text="${error}" class="text-danger">Error messages</div>
                 <input th:field="*{date}" type="date" placeholder="Appointment Date *" required
                        oninput="checkWeekend(this)" />
@@ -51,7 +51,7 @@
                 <input th:field="*{time}" type="time" placeholder="Appointment Time *" required/>
                 <small  class="text-danger"></small>
 
-                <button type="submit" class="btn" href="#">
+                <button th:utext="#{consultation.send.request}" type="submit" class="btn" href="#">
                     <span></span>
                     <span></span>
                     <span></span>

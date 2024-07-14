@@ -14,7 +14,7 @@
         <form class="logout-form" sec:authorize="isAuthenticated()" th:method="Post"
               th:action="@{/logout}">
 
-            <input class="logout" type="submit" value="Logout">
+            <input th:value="#{nav.logout}" class="logout" type="submit" >
         </form>
     </div>
     <nav>

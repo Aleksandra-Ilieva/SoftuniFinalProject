@@ -14,37 +14,37 @@
     <section class="hero">
         <section class="schedule">
             <div class="new-appointments table">
-                <h1>New Appointments</h1>
+                <h1 th:text="#{doctor.newAppointments.label}" >New Appointments</h1>
 
                     <table>
                         <tr>
-                            <th>Username</th>
-                            <th>Email</th>
-                            <th>Date</th>
-                            <th>Time</th>
-                            <th>Cancel</th>
-                            <th>Approve</th>
+                            <th th:text="#{doctor.table.username}" >Username</th>
+                            <th th:text="#{doctor.table.email}" >Email</th>
+                            <th th:text="#{doctor.table.date}" >Date</th>
+                            <th th:text="#{doctor.table.time}" >Time</th>
+                            <th th:text="#{doctor.table.cancel}" >Cancel</th>
+                            <th th:text="#{doctor.table.approve}" >Approve</th>
                         </tr>
                         <tr th:each="c: ${consultations.getConsultationDtoList()}" >
                             <td th:text="${c.username}" >Bobi</td>
                             <td th:text="${c.email}" >Bobi</td>
                             <td th:text="${c.date}">2024.07.12</td>
                             <td th:text="${c.time}">12:20</td>
-                            <td><a class="cancel" th:href="@{/doctor-page/all/cancel/{id}(id = ${c.getId()})}">Cancel</a></td>
-                            <td><a class="approve" th:href="@{/doctor-page/all/approve/{id}(id = ${c.getId()})}">Approve</a></td>
+                            <td><a class="cancel" th:text="#{doctor.table.cancel}" th:href="@{/doctor-page/all/cancel/{id}(id = ${c.getId()})}">Cancel</a></td>
+                            <td><a class="approve" th:text="#{doctor.table.approve}" th:href="@{/doctor-page/all/approve/{id}(id = ${c.getId()})}">Approve</a></td>
                         </tr>
                     </table>
 
             </div>
             <div class="approved-appointments table">
-                <h1>Approved Appointments</h1>
+                <h1 th:text="#{doctor.approvedAppointments.label}" >Approved Appointments</h1>
                 <table>
                     <tr>
-                        <th>Username</th>
-                        <th>Email</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Remove</th>
+                        <th th:text="#{doctor.table.username}" >Username</th>
+                        <th th:text="#{doctor.table.email}" >Email</th>
+                        <th th:text="#{doctor.table.date}" >Date</th>
+                        <th th:text="#{doctor.table.time}" >Time</th>
+                        <th th:text="#{doctor.table.remove}" >Remove</th>
                     </tr>
                     <tr th:each="c: ${approvedConsultations.getConsultations()}" >
                         <td th:text="${c.username}" >Bobi</td>
@@ -53,7 +53,7 @@
                         <td th:text="${c.time}">12:20</td>
                         <td>
                             <div class="wrapper-check">
-                                <a class="cancel consulted" th:href="@{/doctor-page/all/delete/{id}(id = ${c.getId()})}">Consulted<i class="fa-solid fa-check"></i></a>
+                                <a  th:text="#{doctor.table.consulted}"  class="cancel consulted" th:href="@{/doctor-page/all/delete/{id}(id = ${c.getId()})}">Consulted<i class="fa-solid fa-check"></i></a>
                             </div>
                         </td>
 
