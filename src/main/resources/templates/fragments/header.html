@@ -15,10 +15,20 @@
               th:action="@{/logout}">
 
             <input th:value="#{nav.logout}" class="logout" type="submit" >
+
+
+
         </form>
+    </div>
+    <div class="switch">
+        <input id="language-toggle" class="check-toggle check-toggle-round-flat" type="checkbox">
+        <label for="language-toggle"></label>
+        <span class="on">BG</span>
+        <span class="off">EN</span>
     </div>
     <nav>
         <ul>
+
             <li><a th:text="#{nav.home}" th:href="@{/}"></a></li>
             <li><a th:text="#{nav.services}" th:href="@{/services}">Services</a></li>
             <li><a th:text="#{nav.prices}" th:href="@{/prices}">Prices</a></li>
@@ -41,4 +51,6 @@
 
 
 </body>
+
+
 </html>
