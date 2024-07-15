@@ -1,4 +1,4 @@
-package org.example.softunifinalproject.controler;
+package org.example.softunifinalproject.controller;
 
 import org.example.softunifinalproject.model.dto.PriceDto;
 import org.example.softunifinalproject.service.PriceService;

@@ -1,4 +1,4 @@
-package org.example.softunifinalproject.controler;
+package org.example.softunifinalproject.controller;
 
 import org.example.softunifinalproject.model.dto.doctorPageDto.AllNewConsultationsDto;
 import org.example.softunifinalproject.model.dto.doctorPageDto.ApprovedConsultationsDto;
@@ -8,8 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
-import java.security.Principal;
 
 @Controller
 public class DoctorController {

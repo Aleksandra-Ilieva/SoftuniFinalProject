@@ -1,8 +1,6 @@
-package org.example.softunifinalproject.controler;
+package org.example.softunifinalproject.controller;
 
 import jakarta.validation.Valid;
-import org.example.softunifinalproject.model.dto.doctorPageDto.AllNewConsultationsDto;
-import org.example.softunifinalproject.model.dto.doctorPageDto.ApprovedConsultationsDto;
 import org.example.softunifinalproject.model.dto.ConsultationDto;
 import org.example.softunifinalproject.model.dto.profileDto.BusySlotsDto;
 import org.example.softunifinalproject.service.ConsultationService;
@@ -12,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 

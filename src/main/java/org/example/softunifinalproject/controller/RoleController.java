@@ -1,4 +1,4 @@
-package org.example.softunifinalproject.controler;
+package org.example.softunifinalproject.controller;
 
 import jakarta.validation.Valid;
 import org.example.softunifinalproject.model.dto.SetRoleDto;

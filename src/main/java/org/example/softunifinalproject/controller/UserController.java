@@ -1,11 +1,8 @@
-package org.example.softunifinalproject.controler;
+package org.example.softunifinalproject.controller;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.example.softunifinalproject.model.dto.UserRegisterDto;
 import org.example.softunifinalproject.service.UserService;
-import org.springframework.security.web.WebAttributes;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,8 +11,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import javax.security.sasl.AuthenticationException;
 
 @Controller
 public class UserController {

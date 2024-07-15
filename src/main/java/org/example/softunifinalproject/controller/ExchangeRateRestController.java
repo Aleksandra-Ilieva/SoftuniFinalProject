@@ -1,13 +1,9 @@
-package org.example.softunifinalproject.controler;
+package org.example.softunifinalproject.controller;
 
-import jakarta.servlet.http.HttpServletRequest;
 import org.example.softunifinalproject.model.dto.RateDto;
-import org.example.softunifinalproject.model.entity.Rate;
 import org.example.softunifinalproject.service.DatabaseRateStorageService;
-import org.example.softunifinalproject.service.ExchangeRateService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
