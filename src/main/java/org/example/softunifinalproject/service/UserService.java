@@ -1,5 +1,6 @@
 package org.example.softunifinalproject.service;
 
+import org.example.softunifinalproject.model.dto.UserDto;
 import org.example.softunifinalproject.model.dto.userProfileDto.ConsultationMessageDto;
 import org.example.softunifinalproject.model.dto.userProfileDto.UserConsultationDto;
 import org.example.softunifinalproject.model.dto.UserRegisterDto;
@@ -15,4 +16,6 @@ public interface UserService {
     UserConsultationDto getUserProfile(Principal principal);
 
     ConsultationMessageDto cancelUserConsultation(Long id);
+
+    UserDto getUser(long id);
 }

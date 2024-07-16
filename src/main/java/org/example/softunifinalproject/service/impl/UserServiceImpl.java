@@ -103,4 +103,10 @@ public class UserServiceImpl implements UserService {
         this.consultationRepository.delete(consultation.get());
         return messageDto;
     }
+
+    @Override
+    public UserDto getUser(long id) {
+      Optional<User> user=  this.userRepository.findById(id);
+        return user.map(value -> this.modelMapper.map(value, UserDto.class)).orElse(null);
+    }
 }

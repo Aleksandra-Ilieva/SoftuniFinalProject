@@ -6,5 +6,5 @@ import org.example.softunifinalproject.model.entity.Role;
 public interface RoleService {
     Role getRoleForNormalUser();
 
-    void setRole(SetRoleDto dto);
+    boolean setRole(SetRoleDto dto);
 }

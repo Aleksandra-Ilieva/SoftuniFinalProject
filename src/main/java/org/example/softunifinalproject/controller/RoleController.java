@@ -2,6 +2,7 @@ package org.example.softunifinalproject.controller;
 
 import jakarta.validation.Valid;
 import org.example.softunifinalproject.model.dto.SetRoleDto;
+import org.example.softunifinalproject.model.dto.UserDto;
 import org.example.softunifinalproject.model.dto.adminPageDto.ViewAllUsersDto;
 import org.example.softunifinalproject.service.RoleService;
 import org.example.softunifinalproject.service.UserService;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class RoleController {
     private final RoleService roleService;
     public final UserService userService;
+    private UserDto userDto;
 
     public RoleController(RoleService roleService, UserService userService) {
         this.roleService = roleService;
@@ -30,6 +32,7 @@ public class RoleController {
 
         return "admin";
     }
+
     @PostMapping("/set/role")
     public String setRole(@Valid SetRoleDto setRoleDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
@@ -38,8 +41,11 @@ public class RoleController {
                     .addFlashAttribute("org.springframework.validation.BindingResult.setRoleDto", bindingResult);
             return "redirect:/admin";
         }
-       this.roleService.setRole(setRoleDto);
+        boolean isSet = this.roleService.setRole(setRoleDto);
+        redirectAttributes.addFlashAttribute("isSet", isSet);
+
         return "redirect:/admin";
+
     }
 
 
@@ -47,4 +53,5 @@ public class RoleController {
     public SetRoleDto setRoleDto() {
         return new SetRoleDto();
     }
+
 }

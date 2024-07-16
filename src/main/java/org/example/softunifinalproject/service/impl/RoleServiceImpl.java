@@ -26,12 +26,16 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public void setRole(SetRoleDto dto) {
+    public boolean setRole(SetRoleDto dto) {
       User user=  this.userRepository.findUserByEmailAndUsername(dto.getEmail(),dto.getUsername());
       RoleType roleType = RoleType.valueOf(dto.getRoleType().toUpperCase());
       Role role= this.roleRepository.findByRoleType(roleType);
+      if(user.getRoles().contains(role)){
+          return false;
+      }
       user.getRoles().add(role);
       this.userRepository.save(user);
+      return true;
     }
 
 

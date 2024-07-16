@@ -23,6 +23,7 @@
                         <th>Username</th>
                         <th>Email</th>
                         <th>Roles</th>
+                        <th>Set</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -44,24 +45,32 @@
                                 </li>
                             </ul>
                         </td>
+                        <td>
+                            <button class="approve set-button"
+                                    th:data-username="${u.username}"
+                                    th:data-email="${u.email}">Set</button>
+
+                        </td>
+
                     </tr>
                     </tbody>
                 </table>
             </div>
         </section>
 
-        <section class="setRole">
+        <section  class="setRole">
+            <small class="sent" th:if="${isSet == true}">The role has been successfully assigned!</small>
+            <small class="text-danger" th:if="${isSet == false}">User already has this role!</small>
             <h1>Set Role</h1>
             <form th:object="${setRoleDto}" class="roleForm" th:method="POST" th:action="@{/admin/set/role}">
-                <input th:field="*{username}"  placeholder="username" name="username">
+                <input id="username"  th:field="*{username}"  placeholder="username" name="username">
                 <small th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="text-danger"></small>
-                <input th:field="*{email}"  placeholder="email" name="email">
+                <input id="email"  th:field="*{email}"  placeholder="email" name="email">
                 <small  th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></small>
                 <select name="roleType">
                     <option value="user">USER</option>
                     <option value="doctor">DOCTOR</option>
                     <option value="admin">ADMIN</option>
-                    <option value="all">ALL</option>
                 </select>
                 <button id="save" class="approve" type="submit">Save</button>
             </form>
@@ -73,6 +82,26 @@
 </main>
 <footer th:replace="fragments/footer :: footer"></footer>
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const buttons = document.querySelectorAll('.set-button');
+        buttons.forEach(button => {
+            button.addEventListener('click', function () {
+                const username = button.getAttribute('data-username');
+                const email = button.getAttribute('data-email');
+                console.log(username)
+                populateForm(username, email);
+            });
+        });
+    });
+
+    function populateForm(username, email) {
+        document.getElementById('username').value = username;
+        document.getElementById('email').value = email;
+    }
+</script>
+
+
 <script src="/js/dropDownMenu.js"></script>
 <script src="/js/ChangeLanguage.js"></script>
 </html>
