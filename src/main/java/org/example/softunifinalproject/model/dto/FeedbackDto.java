@@ -8,6 +8,8 @@ import javax.crypto.Mac;
 
 public class FeedbackDto {
 
+    private long id;
+
     @NotNull
     @NotBlank(message = "Full Name must not be blank!")
     private String fullName;
@@ -16,8 +18,18 @@ public class FeedbackDto {
     @NotBlank(message = "Email must not be blank!")
     private String email;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     @NotNull
     @NotBlank(message = "Message must not be blank!")
+
+
     private String message;
 
     public String getFullName() {

@@ -10,17 +10,19 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.security.Principal;
+import java.util.List;
 
 @Controller
 public class FeedbackController {
-    private final FeedbackService contactUsService;
+    private final FeedbackService feedbackService;
 
     public FeedbackController(FeedbackService contactUsService) {
-        this.contactUsService = contactUsService;
+        this.feedbackService = contactUsService;
     }
 
 
@@ -43,14 +45,29 @@ public class FeedbackController {
             return "redirect:/contact";
         }
 
-        this.contactUsService.saveFeedback(feedbackDto);
+        this.feedbackService.saveFeedback(feedbackDto);
         redirectAttributes.addFlashAttribute("isSaved", true);
 
         return "redirect:/contact";
     }
 
+    @GetMapping("/admin/feedback")
+    public String showFeedbacks( Model model) {
+        List<FeedbackDto> feedbackDtoList = this.feedbackService.getLastTen();
+        model.addAttribute("feedbackDtoList", feedbackDtoList);
+        return "adminFeedbackPanel";
+    }
+
+    @GetMapping("/admin/feedback/{id}")
+    public String cancelConsultation(@PathVariable long id) {
+        this.feedbackService.deleteFeedback(id);
+        return "redirect:/admin/feedback";
+    }
+
     @ModelAttribute
-    public FeedbackDto feedbackDto() {
+    public FeedbackDto feedbackDto(Model model) {
         return new FeedbackDto();
     }
+
+
 }

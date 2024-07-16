@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/appointment.css}">
+</head>
+<body>
+<header th:replace="fragments/header :: header"></header>
+<main>
+    <section class="hero">
+        <section class="users">
+            <div class="table-wrapper">
+                <h1>Feedbacks</h1>
+
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Message</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="f : ${feedbackDtoList}" >
+                        <!-- Форма за всеки ред -->
+                        <td th:text="${f.email}" ></td>
+                        <td th:text="${f.message}"></td>
+                        <td><a class="cancel"  th:href="@{/admin/feedback/{id}(id = ${f.getId()})}">Delete</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </section>
+
+
+</main>
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+
+</html>

@@ -40,6 +40,7 @@
             <li  sec:authorize="!hasRole('DOCTOR') and hasRole('USER')" ><a th:text="#{nav.myProfile}" sec:authorize="isAuthenticated()" th:href="@{/profile}">My profile</a></li>
             <li sec:authorize="!hasRole('ADMIN') and hasRole('USER')"  ><a th:text="#{nav.mySchedule}" sec:authorize="hasAnyRole('DOCTOR')" th:href="@{/doctor-page}">My schedule</a></li>
             <li  ><a th:text="#{nav.adminPanel}" sec:authorize="hasRole('ADMIN')" th:href="@{/admin}">Admin panel</a></li>
+            <li  ><a  sec:authorize="hasRole('ADMIN')" th:href="@{/admin/feedback}">Admin Feedback Panel</a></li>
 
 
         </ul>

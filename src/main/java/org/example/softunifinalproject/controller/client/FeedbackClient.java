@@ -1,9 +1,15 @@
 package org.example.softunifinalproject.controller.client;
 
 import org.example.softunifinalproject.model.dto.FeedbackDto;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Collections;
 import java.util.List;
 
 @Component
@@ -26,9 +32,28 @@ public class FeedbackClient {
        restTemplate.delete("http://localhost:8081/api/v1/feedback/"+id);
     }
 
-    public List<FeedbackDto> getLastTen() {
-        List<FeedbackDto> list =(List<FeedbackDto>) restTemplate.getForObject("http://localhost:8081/api/v1/feedback/", List.class);
 
-        return list;
+
+    public List<FeedbackDto> getLastTen() {
+        String url = "http://localhost:8081/api/v1/feedback";
+
+        try {
+            ResponseEntity<List<FeedbackDto>> responseEntity = restTemplate.exchange(
+                    url,
+                    HttpMethod.GET,
+                    null,
+                    new ParameterizedTypeReference<List<FeedbackDto>>() {}
+            );
+
+            return responseEntity.getBody();
+        } catch (HttpClientErrorException e) {
+            // Handle HTTP errors
+            System.err.println("HTTP error occurred: " + e.getStatusCode() + " " + e.getStatusText());
+        } catch (RestClientException e) {
+            // Handle other errors
+            System.err.println("Error occurred while making the request: " + e.getMessage());
+        }
+
+        return Collections.emptyList(); // Return an empty list in case of errors
     }
 }

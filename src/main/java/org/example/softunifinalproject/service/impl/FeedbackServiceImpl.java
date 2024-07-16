@@ -9,19 +9,15 @@ import java.util.List;
 
 @Service
 public class FeedbackServiceImpl implements FeedbackService {
-//    private final ModelMapper modelMapper;
-//    private final FeedbackRepository feedbackRepository;
+
     private final FeedbackClient feedbackClient;
 
-    public FeedbackServiceImpl(/*ModelMapper modelMapper, FeedbackRepository feedbackRepository, */FeedbackClient feedbackClient) {
-//        this.modelMapper = modelMapper;
-//        this.feedbackRepository = feedbackRepository;
+    public FeedbackServiceImpl(FeedbackClient feedbackClient) {
         this.feedbackClient = feedbackClient;
     }
 
     @Override
     public FeedbackDto saveFeedback(FeedbackDto feedbackDto) {
-//      Feedback feedback=  this.modelMapper.map(feedbackDto, Feedback.class);
      return this.feedbackClient.saveFeedback(feedbackDto);
 
     }
