@@ -15,14 +15,14 @@
     <section class="hero">
         <section class="users">
             <div class="table-wrapper">
-                <h1>Feedbacks</h1>
+                <h1 th:text="#{feedbacks}" >Feedbacks</h1>
 
                 <table>
                     <thead>
                     <tr>
-                        <th>Email</th>
-                        <th>Message</th>
-                        <th>Delete</th>
+                        <th th:text="#{admin.email}" >Email</th>
+                        <th th:text="#{feedback.message}" >Message</th>
+                        <th th:text="#{feedback.delete}" >Delete</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -30,7 +30,7 @@
                         <!-- Форма за всеки ред -->
                         <td th:text="${f.email}" ></td>
                         <td th:text="${f.message}"></td>
-                        <td><a class="cancel"  th:href="@{/admin/feedback/{id}(id = ${f.getId()})}">Delete</a></td>
+                        <td ><a th:text="#{feedback.delete}" class="cancel"  th:href="@{/admin/feedback/{id}(id = ${f.getId()})}">Delete</a></td>
                     </tr>
                     </tbody>
                 </table>

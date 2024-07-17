@@ -15,15 +15,15 @@
     <section class="hero">
         <section class="users">
             <div class="table-wrapper">
-                <h1>Users</h1>
+                <h1  th:text="#{admin.users}" >Users</h1>
 
                 <table>
                     <thead>
                     <tr>
-                        <th>Username</th>
-                        <th>Email</th>
-                        <th>Roles</th>
-                        <th>Set</th>
+                        <th th:text="#{admin.username}" >Username</th>
+                        <th th:text="#{admin.email}" >Email</th>
+                        <th th:text="#{admin.roles}" >Roles</th>
+                        <th th:text="#{admin.set}"  >Set</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -35,7 +35,7 @@
                             <ul class="role-list">
                                 <li>
                                     <div class="dropdown">
-                                        <button class="dropbtn">Roles</button>
+                                        <button th:text="#{admin.roles}" class="dropbtn">Roles</button>
                                         <div class="dropdown-content">
                                             <ul th:each="role : ${u.getRoleNames()}">
                                                 <li th:text="${role}"></li>
@@ -48,7 +48,7 @@
                         <td>
                             <button class="approve set-button"
                                     th:data-username="${u.username}"
-                                    th:data-email="${u.email}">Set</button>
+                                    th:text="#{admin.set}"   th:data-email="${u.email}">Set</button>
 
                         </td>
 
@@ -59,20 +59,20 @@
         </section>
 
         <section  class="setRole">
-            <small class="sent" th:if="${isSet == true}">The role has been successfully assigned!</small>
-            <small class="text-danger" th:if="${isSet == false}">User already has this role!</small>
-            <h1>Set Role</h1>
-            <form th:object="${setRoleDto}" class="roleForm" th:method="POST" th:action="@{/admin/set/role}">
-                <input id="username"  th:field="*{username}"  placeholder="username" name="username">
+            <small class="sent"  th:text="#{admin.successfullyAssigned}"  th:if="${isSet == true}">The role has been successfully assigned!</small>
+            <small th:text="#{admin.alreadyHasRole}" class="text-danger" th:if="${isSet == false}">User already has this role!</small>
+            <h1 th:text="#{admin.setRole}" >Set Role</h1>
+            <form  th:object="${setRoleDto}" class="roleForm" th:method="POST" th:action="@{/admin/set/role}">
+                <input id="username"  th:field="*{username}" th:placeholder="#{admin.username}" name="username">
                 <small th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="text-danger"></small>
-                <input id="email"  th:field="*{email}"  placeholder="email" name="email">
+                <input id="email"  th:field="*{email}"  th:placeholder="#{admin.email}" name="email">
                 <small  th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></small>
-                <select name="roleType">
+                <select  name="roleType">
                     <option value="user">USER</option>
                     <option value="doctor">DOCTOR</option>
                     <option value="admin">ADMIN</option>
                 </select>
-                <button id="save" class="approve" type="submit">Save</button>
+                <button  th:text="#{admin.save}" id="save" class="approve" type="submit">Save</button>
             </form>
 
         </section>
