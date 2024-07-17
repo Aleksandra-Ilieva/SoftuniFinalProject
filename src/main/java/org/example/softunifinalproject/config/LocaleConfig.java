@@ -11,7 +11,6 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import java.util.Locale;
 
 @Configuration
-//@ComponentScan(basePackages = "com.baeldung.internationalization.config")
 public class LocaleConfig implements WebMvcConfigurer {
 
     @Bean

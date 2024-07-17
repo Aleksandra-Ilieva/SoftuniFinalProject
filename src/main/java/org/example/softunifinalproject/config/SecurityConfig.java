@@ -33,17 +33,16 @@ public class SecurityConfig {
     private final UserRepository userRepository;
 
 
-
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeRequests()// defines which pages will be authorized
+        http.authorizeHttpRequests(authorizeRequests ->
+                authorizeRequests
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                 .requestMatchers("/", "/login", "/register", "/services", "/about", "/prices", "/contact", "/rates").permitAll()
                 .requestMatchers("/admin").hasRole(RoleType.ADMIN.name())
                 .requestMatchers("/doctor-page").hasAnyRole(RoleType.DOCTOR.name(), RoleType.ADMIN.name())
-                .anyRequest().authenticated()
-                .and().formLogin(formLogin ->
+                .anyRequest().authenticated())
+                .formLogin(formLogin ->
                         formLogin
                                 .loginPage("/login")
                                 .passwordParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_PASSWORD_KEY)

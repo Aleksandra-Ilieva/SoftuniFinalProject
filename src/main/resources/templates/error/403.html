@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>403 - Forbidden</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        text-align: center;
+        padding: 50px;
+    }
+    .error-page {
+        max-width: 600px;
+        margin: auto;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h1 {
+        color: #dc3545;
+    }
+    p {
+        color: #666;
+        line-height: 1.6;
+    }
+    a {
+        color: #007bff;
+        text-decoration: none;
+    }
+</style>
+<body>
+<div class="error-page">
+    <h2>Access Denied</h2>
+    <p>You do not have permission to access this page.</p>
+    <a th:href="@{/}" class="button">Go to Home</a>
+</div>
+</body>
+</html>
