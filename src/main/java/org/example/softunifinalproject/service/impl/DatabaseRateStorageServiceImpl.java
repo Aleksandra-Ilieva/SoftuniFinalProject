@@ -8,6 +8,7 @@ import org.example.softunifinalproject.service.ExchangeRateService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +26,11 @@ public class DatabaseRateStorageServiceImpl implements DatabaseRateStorageServic
 
     @Override
     public void saveRates() {
-        rateRepository.saveAll(exchangeRateService.getRates());
+        List<Rate> rates = exchangeRateService.getRates();
+        for (Rate rate : rates) {
+            rate.setCreatedOn(LocalDateTime.now());
+        }
+        rateRepository.saveAll(rates);
 
     }
 
