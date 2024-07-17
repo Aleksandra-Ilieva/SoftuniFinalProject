@@ -1,6 +1,7 @@
 package org.example.softunifinalproject.controller.client;
 
 import org.example.softunifinalproject.model.dto.FeedbackDto;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -15,34 +16,35 @@ import java.util.List;
 @Component
 public class FeedbackClient {
 
-
     private final RestTemplate restTemplate;
+
+
+    private final String apiKey = System.getenv("FEEDBACKS_API_KEY");
 
     public FeedbackClient(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
-
     public FeedbackDto saveFeedback(FeedbackDto feedbackDto) {
-       FeedbackDto feedbackDto1 = restTemplate.postForObject("http://localhost:8081/api/v1/feedback", feedbackDto, FeedbackDto.class);
-        return feedbackDto1;
+        String url = "http://localhost:8081/api/v1/feedback?api_key=" + apiKey;
+        return restTemplate.postForObject(url, feedbackDto, FeedbackDto.class);
     }
 
     public void deleteFeedback(Long id) {
-       restTemplate.delete("http://localhost:8081/api/v1/feedback/"+id);
+        String url = "http://localhost:8081/api/v1/feedback/" + id + "?api_key=" + apiKey;
+        restTemplate.delete(url);
     }
 
-
-
     public List<FeedbackDto> getLastTen() {
-        String url = "http://localhost:8081/api/v1/feedback";
+        String url = "http://localhost:8081/api/v1/feedback?api_key=" + apiKey;
 
         try {
             ResponseEntity<List<FeedbackDto>> responseEntity = restTemplate.exchange(
                     url,
                     HttpMethod.GET,
                     null,
-                    new ParameterizedTypeReference<List<FeedbackDto>>() {}
+                    new ParameterizedTypeReference<List<FeedbackDto>>() {
+                    }
             );
 
             return responseEntity.getBody();
