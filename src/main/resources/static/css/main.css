@@ -147,3 +147,65 @@ main .hero .hero-info a:hover {
     color: gray;
     text-align: center;
 }
+
+@media (max-width: 780px) {
+    main .hero .hero-info {
+        max-width: 100%;
+        padding-left: 10px;
+        padding-right:  10px;
+        padding-top: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    main .hero .hero-info h1 {
+
+        font-family: Arial, serif;
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    main .hero{
+        height: 50vh;
+    }
+
+    .welcome{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .welcome .info{
+        max-width: 90%;
+    }
+    .welcome .img-doctor{
+        max-width: 100%;
+    }
+    .offer .offer-cards{
+        flex-direction: column;
+    }
+
+    main .hero .hero-info a {
+        color: #ffffff;
+        padding-top: 4px;
+        padding-left: 20px;
+        border-radius: 14px;
+        padding-right: 20px;
+        padding-bottom: 4px;
+        background-color: #0174cf;
+        border-top-width: 0px;
+        border-left-width: 0px;
+        border-right-width: 0px;
+        border-bottom-width: 0px;
+        cursor: pointer;
+        font-size: 12px;
+        font-weight: bold;
+        text-align: center;
+    }
+    .offer .offer-cards div{
+        margin-top: 40px;
+    }
+}
+
