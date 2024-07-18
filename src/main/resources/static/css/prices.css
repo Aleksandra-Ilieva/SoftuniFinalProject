@@ -34,3 +34,16 @@ justify-content: space-between;
     flex-direction: row;
     gap: 30px;
 }
+
+@media (max-width: 600px) {
+    .consult p {
+        font-size: 1.2rem;
+        font-family: "Times New Roman", sans-serif;
+    }
+    .procedures h1 {
+        font-size: 2rem;
+
+    }
+
+    
+}
