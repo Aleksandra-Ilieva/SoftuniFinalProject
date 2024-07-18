@@ -188,3 +188,77 @@ input.check-toggle-round-flat:checked + label {
 input.check-toggle-round-flat:checked + label:after {
     margin-left: 44px;
 }
+
+.hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+    nav {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    nav.nav-menu.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        right: 20px;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 150px;
+        padding: 10px;
+        align-items: center; /* Центриране на елементите в мобилното меню */
+
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+        width: 100%; /* Разширяване на елементите до пълната ширина на родителския елемент */
+    }
+
+    nav ul li a {
+
+        width: 200px/* Разширяване на линковете до пълната ширина на родителския елемент */
+    }
+}
+
+@media (max-width: 530px) {
+    header h1 {
+        color: black;
+        font-family: cursive;
+        font-size: 20px;
+    }
+
+ header{
+     flex-direction: column;
+
+ }
+
+    nav.nav-menu.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 150px;
+        right: 120px;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 150px;
+        padding: 10px;
+        align-items: center; /* Центриране на елементите в мобилното меню */
+
+    }
+    .nav-menu{
+        flex-direction: row;
+    }
+}

@@ -26,7 +26,11 @@
         <span class="on">BG</span>
         <span class="off">EN</span>
     </div>
-    <nav>
+    <div class="hamburger" id="hamburger">
+
+        <i class="fas fa-bars"></i>
+    </div>
+    <nav id="nav-menu" class="nav-menu">
         <ul>
 
             <li><a th:text="#{nav.home}" th:href="@{/}"></a></li>
@@ -52,6 +56,10 @@
 
 
 </body>
+
+<script src="/js/ResponsiveHeader.js"></script>
+
+
 
 
 </html>
