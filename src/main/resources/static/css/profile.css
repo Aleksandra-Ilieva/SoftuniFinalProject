@@ -105,3 +105,21 @@ tr:nth-child(odd) {
 .fail{
     color: red;
 }
+@media (max-width: 600px) {
+    h1{
+        font-size: 2.5rem;
+    }
+    .profile{
+        width: 350px;
+    }
+    .profile h1{
+        font-size: 2.5rem;
+    }
+
+    .profile h2 {
+        color: white;
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+}
