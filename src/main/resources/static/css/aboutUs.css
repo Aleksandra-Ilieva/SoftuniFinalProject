@@ -128,3 +128,21 @@ main {
     padding: 20px;
     margin: 0;
 }
+
+@media (max-width: 1000px) {
+    .hero h1 {
+        text-align: center;
+        margin-top: 10px;
+        font-size: 2rem;
+        color: white;
+    }
+    .hero-info{
+        flex-direction: column;
+    }
+    .wrapper-hero{
+        width: 100%;
+        margin-left: 10px;
+        margin-right: 10px;
+
+    }
+}
