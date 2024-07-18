@@ -204,4 +204,12 @@ h2{
     color: #289bb8;
     text-decoration: none;
 }
-
+@media (max-width: 500px) {
+    .login-page{
+        width: unset;
+    }
+    .form{
+        width: 300px;
+        margin-top: 120px;
+    }
+}
