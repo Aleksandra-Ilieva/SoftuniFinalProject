@@ -112,3 +112,23 @@
     border: 2px solid #0174cf;; /* Добавя синьо подчертаване */
     color: black;
 }
+
+@media (max-width: 530px) {
+    .services h1 {
+        color: white;
+        font-size: 2rem;
+        margin-top: 200px;
+        text-align: center;
+        margin-bottom: 150px;
+    }
+    .services{
+        max-height: 400px;
+    }
+
+    .check-procedure{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    
+}
