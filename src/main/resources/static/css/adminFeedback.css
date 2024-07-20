@@ -118,7 +118,7 @@ table {
 
 .cancel:hover, .approve:hover {
     background-color: white;
-    border: 2px solid green;
+    border: 2px solid #0174cf;
     color: black;
 }
 
@@ -222,29 +222,13 @@ tr:nth-child(odd) {
 }
 
 @media (max-width: 1000px) {
-    .hero {
-        flex-direction: column;
-    }
 
-    .users {
-        width: 80%;
+    h1 {
+        font-size: 1.4rem;
     }
-
-    .table-wrapper {
+    .table-wrapper{
         width: 100%;
         padding: 20px;
-    }
-
-    .table-wrapper table {
-        width: 80%;
-    }
-
-    .setRole {
-        width: 80%;
-    }
-
-    .setRole h1, .users h1 {
-        font-size: 1.4rem;
     }
 }
 
@@ -296,6 +280,7 @@ tr:nth-child(odd) {
     table td:last-child {
         border-bottom: 0;
     }
+
     tr:nth-child(even) {
         background-color: transparent;
     }
@@ -303,9 +288,11 @@ tr:nth-child(odd) {
     tr:nth-child(odd) {
         background-color: transparent;
     }
-    table ul{
+
+   table ul {
         display: unset;
     }
 }
+
 
 

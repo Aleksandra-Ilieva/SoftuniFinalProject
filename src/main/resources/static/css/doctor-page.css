@@ -164,3 +164,29 @@ tr:nth-child(odd) {
     color: black;
 
 }
+ @media (max-width: 900px) {
+     .schedule{
+         flex-direction: column;
+     }
+     
+ }
+
+@media (max-width: 650px) {
+    .schedule{
+        flex-direction: column;
+
+    }
+
+    .table{
+       width: 100%;
+    }
+    table{
+        width: 100%;
+
+    }
+
+    .schedule h1{
+        font-size: 1.5rem;
+    }
+
+}

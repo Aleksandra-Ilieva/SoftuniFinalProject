@@ -195,7 +195,7 @@ input.check-toggle-round-flat:checked + label:after {
     cursor: pointer;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1300px) {
     nav {
         display: none;
     }
@@ -209,10 +209,10 @@ input.check-toggle-round-flat:checked + label:after {
         flex-direction: column;
         position: absolute;
         top: 80px;
-        right: 20px;
+        right: 40px;
         background-color: white;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 150px;
+        width: 200px;
         padding: 10px;
         align-items: center; /* Центриране на елементите в мобилното меню */
 
@@ -250,10 +250,10 @@ input.check-toggle-round-flat:checked + label:after {
         flex-direction: column;
         position: absolute;
         top: 150px;
-        right: 120px;
+        right: 10px;
         background-color: white;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 150px;
+        width: 200px;
         padding: 10px;
         align-items: center; /* Центриране на елементите в мобилното меню */
 

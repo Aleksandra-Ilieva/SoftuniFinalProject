@@ -30,3 +30,13 @@ footer .copy{
     text-align: center;
     padding: 10px 12px;
 }
+
+@media (max-width: 800px) {
+    footer .wrapper-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+    }
+}
