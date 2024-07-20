@@ -42,12 +42,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void register(UserRegisterDto registerDto) {
-        User user = this.modelMapper.map(registerDto, User.class);
-        user.setPassword(this.passwordEncoder.encode(user.getPassword()));
-        Role role = roleService.getRoleForNormalUser();
-        user.getRoles().add(role);
-        this.userRepository.save(user);
+    public boolean register(UserRegisterDto registerDto) {
+        if(registerDto.getConfirmPassword().equals(registerDto.getPassword())) {
+            User user = this.modelMapper.map(registerDto, User.class);
+            user.setPassword(this.passwordEncoder.encode(user.getPassword()));
+            Role role = roleService.getRoleForNormalUser();
+            user.getRoles().add(role);
+            this.userRepository.save(user);
+            return true;
+        }
+      return false;
 
     }
 
@@ -108,5 +112,19 @@ public class UserServiceImpl implements UserService {
     public UserDto getUser(long id) {
       Optional<User> user=  this.userRepository.findById(id);
         return user.map(value -> this.modelMapper.map(value, UserDto.class)).orElse(null);
+    }
+
+    @Override
+    public boolean validateEmail(String email) {
+        if(this.userRepository.findByEmail(email)==null){
+            return  true;
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean validateUsername(String username) {
+        return this.userRepository.findByUsername(username)==null;
     }
 }

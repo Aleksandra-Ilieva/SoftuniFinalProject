@@ -42,13 +42,6 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-mail'
     // https://mvnrepository.com/artifact/com.opencsv/opencsv
     implementation group: 'com.opencsv', name: 'opencsv', version: '5.9'
-//
-//    implementation 'org.springframework.boot:spring-boot-starter-internationalization'
-
-
-
-
-
 
 
 }

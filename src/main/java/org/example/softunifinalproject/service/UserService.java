@@ -9,7 +9,7 @@ import org.example.softunifinalproject.model.dto.adminPageDto.ViewAllUsersDto;
 import java.security.Principal;
 
 public interface UserService {
-    void register(UserRegisterDto registerDto);
+    boolean register(UserRegisterDto registerDto);
 
     ViewAllUsersDto getAllUsers();
 
@@ -18,4 +18,8 @@ public interface UserService {
     ConsultationMessageDto cancelUserConsultation(Long id);
 
     UserDto getUser(long id);
+
+    boolean validateEmail(String email);
+
+    boolean validateUsername(String username);
 }

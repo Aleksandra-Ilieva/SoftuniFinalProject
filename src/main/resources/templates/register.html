@@ -17,6 +17,8 @@
         <div th:object="${registerDto}" class="form">
             <form class="register-form" th:action="@{/register}" th:method="POST">
                 <h2 th:text="#{register.form.title}" >Register</h2>
+                <small class="text-danger" th:text="#{register.err}" th:if="${isSuccessful == false}"></small>
+
                 <input th:field="*{fullName}" name="fullName" type="text"  th:placeholder="#{register.form.fullName}" required/>
                 <small th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}" class="text-danger"></small>
                 <input th:field="*{username}"  name="username" type="text" th:placeholder="#{register.form.username}" required/>

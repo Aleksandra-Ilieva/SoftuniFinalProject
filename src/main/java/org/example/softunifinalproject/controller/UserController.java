@@ -49,8 +49,16 @@ public class UserController {
             return "redirect:/register";
         }
 
-        this.userService.register(registerDto);
-        return "redirect:/login";
+        boolean isSuccessful =this.userService.register(registerDto);
+        if(isSuccessful){
+            return "redirect:/login";
+        }
+        redirectAttributes
+                .addFlashAttribute("isSuccessful", false)
+                .addFlashAttribute("org.springframework.validation.BindingResult.registerDto", bindingResult);
+        return "redirect:/register";
+
+
 
     }
 

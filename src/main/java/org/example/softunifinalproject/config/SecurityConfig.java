@@ -48,7 +48,7 @@ public class SecurityConfig {
                                 .passwordParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_PASSWORD_KEY)
                                 .usernameParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_USERNAME_KEY)
                                 .defaultSuccessUrl("/").failureHandler((request, response, exception) -> {
-                                    response.sendRedirect("/login?error=" + exception.getMessage());//todo test this
+                                    response.sendRedirect("/login?error=" + exception.getMessage());
                                 })
 
 

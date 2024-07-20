@@ -5,6 +5,8 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jdk.jfr.Name;
+import org.example.softunifinalproject.validation.annotation.UniqueEmail;
+import org.example.softunifinalproject.validation.annotation.UniqueUsername;
 import org.hibernate.validator.constraints.Length;
 
 public class UserRegisterDto {
@@ -16,10 +18,12 @@ public class UserRegisterDto {
 
     @NotBlank(message = "Username must not be blank!")
     @Length(min = 2,max = 20,message = "Username  must be between 2 and 20 characters.")
+    @UniqueUsername
     private String username;
 
     @Email(message = "Invalid email")
     @NotBlank(message = "Email can not be empty")
+    @UniqueEmail
     private String email;
 
     @Length(min = 3, max = 20,message = "Password length must be between 3 and 20 characters!")

@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 public class ExchangeRateRestController {
-    //TODO направи го /rates да не се вижда когато отидеш на този път в браузъра!!!
+
 
     private final DatabaseRateStorageService databaseRateStorageService;
 
