@@ -1,6 +1,6 @@
 # Естетична Клиника - Spring MVC Приложение
 
-Този проект представлява уебсайт за естетична клиника, който предоставя лесен начин за запазване на часове, преглед на запазените часове и одобрение на часовете от докторите. Сайтът е разработен с цел да улесни клиентите и да оптимизира процеса на резервация и управление на часовете.
+Проектът представлява уебсайт за естетична клиника и предлага лесен начин за запазване и преглед на часове от клиенти и потвърждаване на консултации от лекар. Сайтът е разработен с цел улесняване на потребителите и оптимизиране процеса на резервация и управление на часовете.
 
 ## Технологичен стек
 1. **Java 17**
@@ -8,34 +8,31 @@
 3. **Thymeleaf**
 4. **HTML**
 5. **CSS**
-#### Всички останали зависимости и библиотеки се намират в `build.gradle` файла.
+6. **Gradle**
 
-## Компилация и Стартиране
+Всички останали зависимости и библиотеки могат да се видят в `build.gradle` файла.
 
-### Външни API-та
+## Конфигурация и Стартиране
 
-Проектът консумира външно API, което предоставя важна функционалност:
-
-1. **[API за валутните курсове](https://www.exchangerate-api.com/)**
+### Външно API
+**[API за валутните курсове](https://www.exchangerate-api.com/)**
   - Това API предоставя информация за валутните курсове, като чрез него цените на процедурите, показани в евро, са винаги актуални.
-  - За да го използвате, трябва да направите регистрация и да вземете ключ за API-то.
-  - Сложете ключа в environment variables в средата за разработка с този ключ: `EXCHANGE_RATE_API_KEY`.
+  - За да се използва, трябва да се направи регистрация и да се вземе ключ.
+  - Добавя се ключа като environment variable в средата за разработка като `EXCHANGE_RATE_API_KEY`.
 
-### Вътрешен микросървис
-
-Проектът включва и собствен микросървис. Важно е да се сложи в environment variables ключ `FEEDBACKS_API_KEY` със стойност, съвпадаща с тази в микросървиса. Повече информация за микросървиса можете да намерите [тук](https://github.com/Aleksandra-Ilieva/SoftniFeedbackMicroservice).
+### Вътрешно API
+Проектът включва и собствен микросървис. Необходимо е да се добави environment variable `FEEDBACKS_API_KEY` със стойност, съвпадаща с ключа на API-то. Повече информация може да се види [тук](https://github.com/Aleksandra-Ilieva/SoftniFeedbackMicroservice).
 
 ### Environment Variables
+За стартиране на проекта са нужни следните environment variables, отговарящи на съответните конфигурации в [application.properties](src%2Fmain%2Fresources%2Fapplication.properties):
 
-За да стартирате проекта, трябва да добавите следните Environment variables в средата за разработка:
-
-- `spring.datasource.username=${db_username}`
-- `spring.datasource.password=${db_password}`
-- `spring.datasource.url=${db_dataUrl}/clinic?useSSL=true&createDatabaseIfNotExist=true`
-- `spring.mail.username=${email}`
-- `spring.mail.password=${email_password}`
-- `EXCHANGE_RATE_API_KEY=${}`
-- `FEEDBACKS_API_KEY=${}`
+- `db_username` -> `spring.datasource.username`
+- `db_password` -> `spring.datasource.password`
+- `db_dataUrl` -> `spring.datasource.url`
+- `email` -> `spring.mail.username`
+- `email_password` -> `spring.mail.password`
+- `EXCHANGE_RATE_API_KEY` -> ключ за външното API
+- `FEEDBACKS_API_KEY` -> ключ за вътрешното API
 
 ## Конфигурация за базата данни
 За връзка с базата данни:
@@ -45,43 +42,43 @@ spring.datasource.password=${db_password}
 spring.datasource.url=${db_dataUrl}/clinic?useSSL=true&createDatabaseIfNotExist=true
 
 ````
-Пример за локален url (db_dataUrl-jdbc:mysql://localhost:3306)
-### Ако не се използва MySQL, е необходимо да се променят следните настройки в application.properties, за да съответстват на базата данни, която се използва:
+Пример за локален url -> jdbc:mysql://localhost:3306
+
+Ако не се използва MySQL, е необходимо да се променят следните настройки в application.properties, за да съответстват на базата данни, която се използва:
 ```
-spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
-spring.datasource.url=jdbc:mysql://localhost:3306/clinic?useSSL=true&createDatabaseIfNotExist=true
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+spring.datasource.driverClassName
+spring.datasource.url
+spring.jpa.properties.hibernate.dialect
 
 ```
 
 ## Конфигурация за автоматичното изпращане на имейли
-Всеки път след одобрение или отказ от доктора на заявка за запазване на час, се изпраща автоматичен имейл. В environment variables се посочва от кой имейл се изпраща съобщението, а за парола се слага специален код, който се генерира (Ако се използва Gmail, първо трябва да се активира двуфакторна автентикация).
+Приложението има имплементирана функционалност за автоматично изпращане на имейли. В environment variables се посочва от кой имейл се изпраща съобщението, а за парола се слага специален код, който се генерира (Ако се използва Gmail, първо трябва да се активира двуфакторна автентикация).
 ````
 spring.mail.username=${email}
 spring.mail.password=${email_password}
 
 ````
-## Ако не се използва Gmail, е необходимо да се променят следните настройки в application.properties:
+Ако не се използва Gmail, е необходимо да се променят следните настройки в application.properties:
 ````
 
-spring.mail.host=smtp.gmail.com
-spring.mail.port=587
-spring.mail.username=${email}
-spring.mail.password=${email_password}
-spring.mail.properties.mail.smtp.auth=true
-spring.mail.properties.mail.smtp.starttls.enable=true
+spring.mail.host
+spring.mail.port
+spring.mail.username
+spring.mail.password
+spring.mail.properties.mail.smtp.auth
+spring.mail.properties.mail.smtp.starttls.enable
 
 ````
 
 ## Стартиране на Приложението
+Приложението върви на локален сървър на порт **8080**.
+За стартиране се изпълняват следните стъпки:
 
-Приложението стартира на локален сървър на порт **8080**.
-
-За да стартирате приложението, използвайте следните стъпки:
-
-1. Уверете се, че сте конфигурирали всички необходими **environment variables** (среда на изпълнение), както е описано по-горе.
-2. Стартирайте приложението  чрез IDE
-3. Отворете браузър и посетете `http://localhost:8080`, за да видите работещото приложение.
+1. Конфигуриране на **environment variables**, както е описано по-горе.
+2. Билдване с gradle.
+3. Стартиране през IDE.
+4. Отворяне на `http://localhost:8080` в браузър.
 
 
 # За проекта
