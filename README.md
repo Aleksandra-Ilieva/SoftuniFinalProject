@@ -4,20 +4,20 @@
 
 ## Външни API
 
-Проектът консумира външно АPI, което предоставят важна функционалност:
+Проектът консумира външно АPI, което предоставя важна функционалност:
 
 1. **[API за валутните курсове](https://www.exchangerate-api.com/)**:   
 Това API предоставя инфорамация за валутните курсове, чрез него цените на процедурите, показани в евро са винаги актуални.
-За да го използвате трябва да си направите регистрация и да вземете ключ за апи-то.
-Сложете ключва си в environment variables в средата за разработка с този ключ: EXCHANGE_RATE_API_KEY
+За да го използвате трябва да  направите регистрация и да вземете ключ за апи-то.
+Сложете ключа в environment variables в средата за разработка с този ключ: EXCHANGE_RATE_API_KEY
 
 ## Вътрешен микросървис
-Проектът включва и собствен микросървис, който предоставя важна функционалност:
+Проектът включва и собствен микросървис.
 Важно е да сложите в environment variables този ключ FEEDBACKS_API_KEY.
 Повече информация за микроървиса можете да намерите **[тук](https://github.com/Aleksandra-Ilieva/SoftniFeedbackMicroservice)**:
 
 ## Environment variables
-За да стартирате проекта, трябва да си добавите следните Environment variables в средата за разбработка:
+За да стартирате проекта, трябва да  добавите следните Environment variables в средата за разбработка:
 ## Конфигурация за базата данни
 ````
 За връзка с базата данни:
@@ -37,7 +37,7 @@ spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
 ## Конфигурация за автоматичното изпращане на имейли
 ````
 Всеки път след одобрение или отказ от доктора на заявка за запазване на час, получавате автоматичен имей, затова трябва да
-посочите в Environment variable от кой имейл искате да бъде изпратено събщениетп, а за парола се слага специален код, който се генерира (Ако използвате gmail първо се активира двуфакторна автентикация)
+посочите в Environment variable от кой имейл искате да бъде изпратено събщението, а за парола се слага специален код, който се генерира (Ако използвате gmail първо се активира двуфакторна автентикация)
 spring.mail.username=${email}
 spring.mail.password=${email_password}
 
@@ -64,13 +64,13 @@ spring.mail.properties.mail.smtp.starttls.enable=true
 #### 3.Thymeleaf 
 #### 4.HTML 
 #### 5.CSS 
-Всички остнали зависимости и библиотеки можете да ги намерите в build.gradle
+Всички остнали зависимости и библиотеки можете да  намерите в build.gradle
 
 
 # За проекта
 ### Home page
 Това е началната страница, която всеки потребител (включително нерегистриран) може да достъпи и види.
-Тя съдържа навигационно меню (което е sticky), няколко секции и footer. Чрез бутна bn/en, потребителят може да избира между български 
+Тя съдържа навигационно меню , няколко секции и footer. Чрез бутна bn/en, потребителят може да избира между български 
 или английски език.
 ![alt text](src/main/resources/static/readmeImg/index1.png)
 ![alt text](src/main/resources/static/readmeImg/index2.png)
@@ -78,45 +78,139 @@ spring.mail.properties.mail.smtp.starttls.enable=true
 
 
 ### Services page
-Това е сървис страницата, може да се достъпи от всеки потребител (включително нерегистриран). В нея можем да видим
+Това е страницата с услугите, може да се достъпи от всеки потребител (включително нерегистриран). В нея се виждат
 услугите, които клиниката предлага. 
 ![alt text](src/main/resources/static/readmeImg/services1.png)
 ![alt text](src/main/resources/static/readmeImg/services2.png)
 ![alt text](src/main/resources/static/readmeImg/services3.png)
 
 ### Prices page
-Това е ценовата страницата, може да се достъпи от всеки потребител (включително нерегистриран). В нея можем да видим
+Това е ценовата страницата, може да се достъпи от всеки потребител (включително нерегистриран). В нея се виждат
 цените на услугите, те се пазят в базата данни, като при стартиране на приложението се чете csv файл, който се намира в 
-ресурсите на проекта, ако таблицата за цените ни е празна, те ще се налеят в базата. Цените се четат в долари, а API-то, което
-споменахме по-рано: **[API за валутните курсове](https://www.exchangerate-api.com/)**:, го използваме за да покажем цените в евро, но за да ги покажем изпозлваме курса на еврото от посоченото API, което го запзваме в базата.
-Всеки ден в 12:00 часа, с помощта на scheduler-а "ExchangeRateUpdaterScheduler", се обръщаме към API-то и обяновяваме инфомрацията за курса в базата.
+ресурсите на проекта. Цените се четат в долари, а API-то, което
+споменахме по-рано: **[API за валутните курсове](https://www.exchangerate-api.com/)**:, се използва за трансформация на цените от долари в евро.
+Всеки ден в 12:00 часа, с помощта на scheduler-а "ExchangeRateUpdaterScheduler", се правят заявки  към API-то и се обновява инфомрацията за курса в базата.
 ![alt text](src/main/resources/static/readmeImg/prices1.png)
 ![alt text](src/main/resources/static/readmeImg/prices2.png)
 
 ### About us page 
-Това е about us страницата, може да се достъпи от всеки потребител (включително нерегистриран). В нея можем да видим повече
+Това е информационна страница, може да се достъпи от всеки потребител (включително нерегистриран). В нея може да се види, повече
 информация за клиниката.
 
 ![alt text](src/main/resources/static/readmeImg/about1.png)
 ![alt text](src/main/resources/static/readmeImg/about2.png)
 
 ### Register page 
-Потребителя се регистрира в сайта чрез следната форма.Имаме валидации и в html-a, и на сървъра , като сме използвали custom анотации.
-Имаме следните валидации при регистрация:
-1. Html-a проверява полето да не е празно, за да не прави допълнителни заявки към сървъра 
-2. 2.Html-a проверява дали имейла съдържа основните неща, който един имейл трябва да има
-3. Сървъра(backend-a):
+Потребителя се регистрира в сайта чрез следната форма.Има валидации на Frontend  и  Backend.
+Валидации на Frontend:
+1. Html-a проверява полетата да не са празни.
+2. Html-a валидира имейла.
+3. Валидации на Backend :
 - Валидира имейл
-- Проверява дали вече няма същестуващ регистриран имейл
-- Проверява дали няма същестуващо потребителско име
-- За всеки input се проверява още един път да не би да е null или blank, освен че на html-a вече е проверено един път
+- Проверява дали вече няма същестуващ регистриран имейл или потребителско име
+- За всчко поле се проверява за нулева стойност или празна.
 - Проверява дали паролата и потвърдената парола са еднакви
   ![alt text](src/main/resources/static/readmeImg/register.png)
-Пример за валидация чрез custom анотация,с която разбираме, че вече има такова регистрирано потребителско име.
+Пример за валидация чрез  анотация,с която се проверява за вече регистирано потребителско име.
   ![alt text](src/main/resources/static/readmeImg/register2.png)
 
 ### Login page 
-След регистрация сме пренасочени към login формата, там трябва да влезем с имейла и паролата, с който сме се регистрирали.
+След регистрация сме пренасочени към login формата, където се влиза с имейл и парола.
 ![alt text](src/main/resources/static/readmeImg/login.png)
-### С помощта на Spring Security, (можете да го разгледате конфигурацията на следния път : src/main/java/org/example/softunifinalproject/config/SecurityConfig.java), правим автентификацията на потребителя, и ако е въвел грешен имейл или парола получаваме следното съобщение:
+### С помощта на Spring Security, ( src/main/java/org/example/softunifinalproject/config/SecurityConfig.java), правим автентификацията на потребителя, и при грешна парола или имейл с се получава следното съобщение.
 ![alt text](src/main/resources/static/readmeImg/login2.png)
+
+При стартиране на приложението, в базата данни се регистрира един потребител, с администраторски права, който получава всички роли.(за паролата и имейла -> src/main/java/org/example/softunifinalproject/init/DbInitAdminAndRoles.java)
+Запазва се администратора и всички роли, ако вече не са били запазени.
+![alt text](src/main/resources/static/readmeImg/admin.png)
+![alt text](src/main/resources/static/readmeImg/dbAdmin.png)
+![alt text](src/main/resources/static/readmeImg/roles.png)
+
+Ако регистрирате потребител, през сайта, той автоматично получава само роля USER.
+За целта регистрирам потребител с този имейл -> aleksa_5@abv.bg
+
+## Login as admin
+![alt text](src/main/resources/static/readmeImg/admin1.png)
+![alt text](src/main/resources/static/readmeImg/admin2.png)
+![alt text](src/main/resources/static/readmeImg/admin3.png)
+
+Регистрираме потребител, който ще заеме ролята на доктор, която администратора трябва да му я даде.
+![alt text](src/main/resources/static/readmeImg/admin4.png)
+
+Администратора въвежда името и имейла и задава желанта роля, след бутона запзваме, ролята е зададена успешно.
+![alt text](src/main/resources/static/readmeImg/setRole.png)
+![alt text](src/main/resources/static/readmeImg/role1.png)
+
+Валидация за същестуваща роля
+
+![alt text](src/main/resources/static/readmeImg/role2.png)
+
+  Валидация за грешен имейл или парола
+
+![alt text](src/main/resources/static/readmeImg/role3.png)
+
+## Login as normal user
+Потребителят може да запази час.
+### Има следните валидации чрез анотации и javaScript:
+- Дата трябва да е текущата или в бъдещето.
+- Дата трябва да е в делниче ден 
+- Часа трябва да е между 9 и 18
+- Потребителят може да види всички запзени часове за 5 дни напред, както своите, така и на останалите потребиели, за да избере подходящ незапазен час.
+- 1 запазен час трае 30 минути
+- Потребителят може да има до 3 запзени часа.
+![alt text](src/main/resources/static/readmeImg/user.png)
+![alt text](src/main/resources/static/readmeImg/user1.png)
+![alt text](src/main/resources/static/readmeImg/user2.png)
+![alt text](src/main/resources/static/readmeImg/user3.png)
+![alt text](src/main/resources/static/readmeImg/user8.png)
+### Успешно изпратена заявка за час, която доктора може да одори или откаже.
+![alt text](src/main/resources/static/readmeImg/user4.png)
+
+## Login as doctor
+След като потребителят, е изпратил заявка за час, доктора може да я одобри или откаже. А потребителят ще получи автоматичен имейл.
+![alt text](src/main/resources/static/readmeImg/doctor.png)
+- След отказ заявката се изтрива.
+- След одобрение:
+![alt text](src/main/resources/static/readmeImg/doctor2.png)
+![alt text](src/main/resources/static/readmeImg/user4Email.png)
+
+## Login as normal user
+След одобрение, потребителят вижда че има заети часове
+![alt text](src/main/resources/static/readmeImg/user5.png)
+
+В страницата Моят профил, потребителят вижда своите часове, може да откаже запазен час, 2 часа преди започването.
+![alt text](src/main/resources/static/readmeImg/user6.png)
+
+Успешно отказан час
+![alt text](src/main/resources/static/readmeImg/user7.png)
+
+## Login as doctor
+При клик на бутона Консултиран, записа изчезва, но не се изтрива от базата. На всеки два часа с помощта на scheduler,
+всички консултирани записи се изтриват от базата.(src/main/java/org/example/softunifinalproject/config/CleanupScheduler.java)
+![alt text](src/main/resources/static/readmeImg/doctor3.png)
+
+
+### Contact Us Page
+- Потребител гост, може да изпрати запитване, след като попълни формата
+![alt text](src/main/resources/static/readmeImg/contactUs.png)
+
+- Ако потребителя има акаунт и е влезнал, имейла му се попълва автоматично.
+  ![alt text](src/main/resources/static/readmeImg/contactUs2.png)
+
+- Успешно изпратено съобщение
+![alt text](src/main/resources/static/readmeImg/contactUs3.png)
+
+## Login as Admin
+Съобщението се обработва от микросървиса, който споменахме по-рано.
+ 
+###  Администартора може да изтрие или да отговори ръчно на дадено запитване.
+![alt text](src/main/resources/static/readmeImg/Feedback.png)
+
+### Интернационализация
+При натискане на бутона за смяна на езика, всяка страница се превежда, за промяната на бутона при смяна на езика
+е използван javaScript
+![alt text](src/main/resources/static/readmeImg/internationalization.png)
+
+### Responsive
+Всички страници са responsive, за падащото меню, което се отваря при клик е използвам javaScript
+![alt text](src/main/resources/static/readmeImg/responsive.png)

@@ -38,5 +38,14 @@ public class RoleServiceImpl implements RoleService {
       return true;
     }
 
+    @Override
+    public boolean validateUsernameAndEmail(SetRoleDto dto) {
+        User user=  this.userRepository.findUserByEmailAndUsername(dto.getEmail(),dto.getUsername());
+        if(user==null){
+            return false;
+        }
+        return true;
+    }
+
 
 }

@@ -41,8 +41,18 @@ public class RoleController {
                     .addFlashAttribute("org.springframework.validation.BindingResult.setRoleDto", bindingResult);
             return "redirect:/admin";
         }
-        boolean isSet = this.roleService.setRole(setRoleDto);
-        redirectAttributes.addFlashAttribute("isSet", isSet);
+        boolean isValid = this.roleService.validateUsernameAndEmail(setRoleDto);
+        redirectAttributes.addFlashAttribute("isValid", isValid);
+        if (!isValid) {
+            return "redirect:/admin";
+        }
+
+        if(isValid){
+            boolean isSet = this.roleService.setRole(setRoleDto);
+            redirectAttributes.addFlashAttribute("isSet", isSet);
+
+        }
+
 
         return "redirect:/admin";
 

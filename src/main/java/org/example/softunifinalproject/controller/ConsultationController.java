@@ -31,7 +31,7 @@ public class ConsultationController {
     }
 
     @PostMapping("/appointment")
-    public String getAppointment(@Valid ConsultationDto consultationDto, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model,Principal principal) {
+    public String saveAppointment(@Valid ConsultationDto consultationDto, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model, Principal principal) {
         if (bindingResult.hasErrors()) {
             redirectAttributes
                     .addFlashAttribute("consultationDto", consultationDto)

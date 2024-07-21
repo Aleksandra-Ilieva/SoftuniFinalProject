@@ -59,8 +59,10 @@
         </section>
 
         <section  class="setRole">
+            <small th:text="#{admin.invalidEmail}" class="text-danger" th:if="${isValid == false}">Invalid Email or Username</small>
             <small class="sent"  th:text="#{admin.successfullyAssigned}"  th:if="${isSet == true}">The role has been successfully assigned!</small>
             <small th:text="#{admin.alreadyHasRole}" class="text-danger" th:if="${isSet == false}">User already has this role!</small>
+
             <h1 th:text="#{admin.setRole}" >Set Role</h1>
             <form  th:object="${setRoleDto}" class="roleForm" th:method="POST" th:action="@{/admin/set/role}">
                 <input id="username"  th:field="*{username}" th:placeholder="#{admin.username}" name="username">

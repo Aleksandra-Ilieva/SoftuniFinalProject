@@ -162,10 +162,13 @@ public class ConsultationServiceImpl implements ConsultationService {
         List<Consultation> consultations = this.consultationRepository.findAll();
         LocalDateTime appointmentLocalDateTime = consultationDto.getDate().atTime(consultationDto.getTime());
         for (Consultation consultation : consultations) {  LocalDateTime endInterval = consultation.getDateTime().plusMinutes(30);
-            if (appointmentLocalDateTime.isEqual(consultation.getDateTime()) || // ако appointmentLocalDateTime е точно равен на consultationDateTime
-                    (appointmentLocalDateTime.isAfter(consultation.getDateTime()) && appointmentLocalDateTime.isBefore(endInterval))) { // или ако appointmentLocalDateTime е в интервала между consultationDateTime и endInterval
-                return true;
+            if(consultation.getConsulted()==null){
+                if (appointmentLocalDateTime.isEqual(consultation.getDateTime()) || // ако appointmentLocalDateTime е точно равен на consultationDateTime
+                        (appointmentLocalDateTime.isAfter(consultation.getDateTime()) && appointmentLocalDateTime.isBefore(endInterval))) { // или ако appointmentLocalDateTime е в интервала между consultationDateTime и endInterval
+                    return true;
+                }
             }
+
         }
         return false;
     }

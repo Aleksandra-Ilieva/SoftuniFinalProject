@@ -7,4 +7,6 @@ public interface RoleService {
     Role getRoleForNormalUser();
 
     boolean setRole(SetRoleDto dto);
+
+    boolean validateUsernameAndEmail(SetRoleDto dto);
 }
