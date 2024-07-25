@@ -7,11 +7,11 @@ import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 
 @Entity
-@Table
+@Table(name = "rates")
 public class Rate extends BaseEntity {
     @Column(nullable = false)
     private String name;
-    @Column(nullable = false)
+    @Column(nullable = false,name = "value_Num")
     private double value;
     @Column
     private LocalDateTime createdOn;

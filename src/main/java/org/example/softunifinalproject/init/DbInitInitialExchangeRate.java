@@ -3,9 +3,11 @@ package org.example.softunifinalproject.init;
 import org.example.softunifinalproject.repository.RateRepository;
 import org.example.softunifinalproject.service.DatabaseRateStorageService;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
+@Profile("dev")
 public class DbInitInitialExchangeRate implements CommandLineRunner {
     private final RateRepository rateRepository;
     private final DatabaseRateStorageService databaseRateStorageService;
@@ -17,7 +19,7 @@ public class DbInitInitialExchangeRate implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        if(rateRepository.count() == 0) {
+        if (rateRepository.count() == 0) {
             databaseRateStorageService.saveRates();
         }
 

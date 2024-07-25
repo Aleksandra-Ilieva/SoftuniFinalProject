@@ -33,6 +33,8 @@
 - `email_password` -> `spring.mail.password`
 - `EXCHANGE_RATE_API_KEY` -> ключ за външното API
 - `FEEDBACKS_API_KEY` -> ключ за вътрешното API
+### Active Profiles
+Active profiles -> dev
 
 ## Конфигурация за базата данни
 За връзка с базата данни:

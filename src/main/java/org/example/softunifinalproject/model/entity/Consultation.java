@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "consulatations")
+@Table(name = "consultations")
 public class Consultation extends BaseEntity {
 
     @ManyToOne
@@ -19,9 +19,7 @@ public class Consultation extends BaseEntity {
     @Column
     private Boolean isAccepted;
 
-
-    //TODO Scheduler for deleting consulted appointments
-    @Column
+    @Column(name = "is_consulted")
     private Boolean isConsulted;
 
     public Boolean getConsulted() {
