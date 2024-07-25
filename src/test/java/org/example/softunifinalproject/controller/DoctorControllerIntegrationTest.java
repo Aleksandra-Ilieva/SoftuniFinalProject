@@ -24,12 +24,6 @@ public class DoctorControllerIntegrationTest {
     private MockMvc mockMvc;
 
 
-    @BeforeEach
-    public void setup() {
-
-    }
-
-
     @Test
     @WithMockUser(username = "doctorUser", roles = {"DOCTOR"})
     public void testDoctorPage() throws Exception {

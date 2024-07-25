@@ -53,7 +53,6 @@ class ConsultationControllerIntegrationTest {
 
     @BeforeEach
     public void setup() {
-        // Any necessary setup before each test
         consultationRepository.deleteAll();
         userRepository.deleteAll();
         roleRepository.deleteAll();

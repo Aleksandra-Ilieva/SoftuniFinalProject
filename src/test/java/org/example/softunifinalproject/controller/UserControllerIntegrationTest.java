@@ -46,8 +46,6 @@ public class UserControllerIntegrationTest {
         validDto.setFullName("validPassword");
         validDto.setEmail("validPassword@abv.bg");
 
-        // Добавяне на потребителя в базата данни
-        // Предполага се, че имаш UserRepository, който ще използваме за съхраняване на потребители
         mockMvc.perform(post("/register")
                         .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                         .param("username", validDto.getUsername())
@@ -66,7 +64,6 @@ public class UserControllerIntegrationTest {
     @Test
     public void testRegisterUser_Failure() throws Exception {
         UserRegisterDto registerDto = new UserRegisterDto();
-        // Настройте недействителни или липсващи полета тук, за да симулирате грешки
 
         mockMvc.perform(post("/register")
                         .flashAttr("registerDto", registerDto).with(csrf()))
