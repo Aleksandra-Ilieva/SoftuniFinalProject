@@ -62,7 +62,6 @@ public class ConsultationServiceImpl implements ConsultationService {
     }
 
 
-
     @Override
     public AllNewConsultationsDto getAllConsultations() {
         List<Consultation> consultations = this.consultationRepository.findAll();
@@ -139,13 +138,13 @@ public class ConsultationServiceImpl implements ConsultationService {
     public BusySlotsDto findBusySlots() {
         List<LocalDateTime> busy = new ArrayList<>();
 
-     List<Consultation> consultations =   this.consultationRepository.findAll();
+        List<Consultation> consultations = this.consultationRepository.findAll();
         for (Consultation consultation : consultations) {
             LocalDateTime localDateTime = consultation.getDateTime();
-            if(LocalDate.now().plusDays(5).equals(consultation.getDateTime().toLocalDate())){
+            if (LocalDate.now().plusDays(5).equals(consultation.getDateTime().toLocalDate())) {
                 break;
             }
-            if(consultation.getAccepted() !=null && consultation.getConsulted()==null && consultation.getDateTime().isAfter(LocalDateTime.now())){
+            if (consultation.getAccepted() != null && consultation.getConsulted() == null && consultation.getDateTime().isAfter(LocalDateTime.now())) {
                 busy.add(localDateTime);
             }
 
@@ -154,15 +153,20 @@ public class ConsultationServiceImpl implements ConsultationService {
 
         BusySlotsDto busySlotsDto = new BusySlotsDto();
         busySlotsDto.setBusySlots(busy);
-        return  busySlotsDto;
+        return busySlotsDto;
     }
 
     @Override
     public boolean checkIfAlreadyBooked(ConsultationDto consultationDto) {
         List<Consultation> consultations = this.consultationRepository.findAll();
         LocalDateTime appointmentLocalDateTime = consultationDto.getDate().atTime(consultationDto.getTime());
-        for (Consultation consultation : consultations) {  LocalDateTime endInterval = consultation.getDateTime().plusMinutes(30);
-            if(consultation.getConsulted()==null){
+        for (Consultation consultation : consultations) {
+            LocalDateTime endInterval = consultation.getDateTime().plusMinutes(30);
+            LocalDateTime startInterval = consultation.getDateTime().minusMinutes(30);
+            if (consultation.getConsulted() == null) {
+                if(appointmentLocalDateTime.isAfter(startInterval) && appointmentLocalDateTime.isBefore(endInterval)){
+                    return true;
+                }
                 if (appointmentLocalDateTime.isEqual(consultation.getDateTime()) || // ако appointmentLocalDateTime е точно равен на consultationDateTime
                         (appointmentLocalDateTime.isAfter(consultation.getDateTime()) && appointmentLocalDateTime.isBefore(endInterval))) { // или ако appointmentLocalDateTime е в интервала между consultationDateTime и endInterval
                     return true;
