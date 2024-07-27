@@ -74,7 +74,6 @@ public class UserControllerIntegrationTest {
     }
 
 
-
     @Test
     public void testGetLoginPageWithoutError() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/login"))

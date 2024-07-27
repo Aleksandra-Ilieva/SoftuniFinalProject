@@ -22,6 +22,9 @@ public class ExchangeRateRestController {
     @GetMapping("/rates")
     public ResponseEntity<RateDto> getAllRates(){
      List<RateDto> rateDtos=   this.databaseRateStorageService.getRatesFromDB();
+     if(rateDtos.isEmpty()){
+         return ResponseEntity.noContent().build();
+     }
         for (RateDto rateDto : rateDtos) {
             if(rateDto.getName().equals("EUR")){
                 return ResponseEntity.ok(rateDto);

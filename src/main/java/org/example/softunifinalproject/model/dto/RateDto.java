@@ -4,6 +4,14 @@ public class RateDto {
     private String name;
     private Double value;
 
+    public RateDto() {
+    }
+
+    public RateDto(String usd, double value) {
+        this.name = usd;
+        this.value = value;
+    }
+
 
     public String getName() {
         return name;
