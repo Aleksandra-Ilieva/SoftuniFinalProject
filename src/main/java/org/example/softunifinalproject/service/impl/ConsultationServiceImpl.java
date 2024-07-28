@@ -163,7 +163,7 @@ public class ConsultationServiceImpl implements ConsultationService {
         for (Consultation consultation : consultations) {
             LocalDateTime endInterval = consultation.getDateTime().plusMinutes(30);
             LocalDateTime startInterval = consultation.getDateTime().minusMinutes(30);
-            if (consultation.getConsulted() == null) {
+            if (consultation.getConsulted() == null && consultation.getAccepted()!=null) {
                 if(appointmentLocalDateTime.isAfter(startInterval) && appointmentLocalDateTime.isBefore(endInterval)){
                     return true;
                 }
